@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,6 +78,7 @@
             color: white;
             font-size: 1.2rem;
         }
+
         .typing {
             color: var(--primary-color);
             font-weight: bold;
@@ -2168,6 +2170,22 @@
             const offset = currentIndex * -100;
             track.style.transform = `translateX(${offset}%)`;
         }
+
+        // Default selection: Activate the first job card and description on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstCard = document.querySelector('.job-card');
+            const firstJobId = firstCard.getAttribute('data-job');
+
+            // Set active class to first job card
+            firstCard.classList.add('active');
+
+            // Hide all descriptions and show only the first one
+            document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
+            document.getElementById(firstJobId).classList.add('active');
+        });
+
+
+
     </script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
