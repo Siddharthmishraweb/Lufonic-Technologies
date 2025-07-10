@@ -647,7 +647,7 @@
             color: var(--primary-color);
         }
 
-        .about-content {
+        /* .about-content {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
@@ -655,18 +655,18 @@
             align-items: center;
             max-width: 1100px;
             margin: auto;
-        }
+        } */
 
-        .about-image img {
+        /* .about-image img {
             width: 300px;
             border-radius: 1rem;
             box-shadow: 0 0 15px rgba(255, 77, 184, 0.3);
-        }
+        } */
 
-        .about-text {
+        /* .about-text {
             max-width: 600px;
             text-align: left;
-        }
+        } */
 
         .features-grid {
             display: grid;
@@ -725,14 +725,14 @@
                 margin: 0.3rem 0.6rem;
             }
 
-            .about-content {
+            /* .about-content {
                 flex-direction: column;
                 text-align: center;
-            }
+            } */
 
-            .about-text {
+            /* .about-text {
                 text-align: center;
-            }
+            } */
         }
 
 
@@ -1845,6 +1845,107 @@
             background: white;
             border-radius: 3px;
         }
+
+
+
+
+
+.about-section {
+    padding: 5rem 1.5rem;
+    background: #0d0d0d;
+    color: #eee;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #ff4db8; /* or var(--primary-color) */
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 25px rgba(255, 77, 184, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 1 1 400px;
+    max-width: 650px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.about-text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .about-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .about-image img {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 3rem 1rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.7rem;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+    }
+
+    .about-image img {
+        max-width: 200px;
+    }
+}
+
     </style>
 
 
@@ -2033,6 +2134,10 @@
             Modern UI meets meaningful swipes.
         </p>
     </section>
+
+
+
+<!-- 
     <section class="about-section" id="about">
         <h2>Who We Are</h2>
         <div class="about-content">
@@ -2047,7 +2152,25 @@
                     scalability, and unforgettable digital experiences.</p>
             </div>
         </div>
-    </section>
+    </section> -->
+
+
+<section class="about-section" id="about">
+    <h2>Who We Are</h2>
+    <div class="about-content">
+        <div class="about-image">
+            <img src="./lufonic-removebg-preview.png" alt="About Lufonic">
+        </div>
+        <div class="about-text">
+            <p><strong>Lufonic</strong> is not just a tech company, we're a vision factory. We design AI-driven
+                platforms, beautiful mobile apps, and scalable digital products with futuristic flair. Our mission
+                is to transform dreams into intelligent, user-friendly realities.</p>
+            <p>With a team of passionate developers, designers, and visionaries, we deliver performance,
+                scalability, and unforgettable digital experiences.</p>
+        </div>
+    </div>
+</section>
+
 
     <section class="specialized-tech-section" id="specialized-tech">
         <h2 class="section-heading">🧠 Specialized Technologies</h2>
