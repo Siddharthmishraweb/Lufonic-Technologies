@@ -48,8 +48,6 @@
             }
         }
 
-
-
         .main-header {
             display: flex;
             justify-content: space-between;
@@ -244,147 +242,6 @@
             }
         }
 
-
-/* 
-
-        .career-container {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .job-listings {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .job-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .job-card.active {
-            border: 2px solid var(--primary-color);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .job-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-card .badge {
-            background: #ccc;
-            padding: 0.3rem 0.6rem;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            color: black;
-            margin-top: 0.3rem;
-            display: inline-block;
-        }
-
-        .actions {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-job,
-        .btn-apply {
-            padding: 0.4rem 1rem;
-            border: none;
-            border-radius: 5px;
-            background: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .job-description {
-            flex: 2;
-            min-width: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 1.5rem;
-        }
-
-        .jd {
-            display: none;
-        }
-
-        .jd.active {
-            display: block;
-            animation: fadeIn 0.6s ease-in-out;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .popup-content {
-            background: #1a1a1a;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            color: white;
-        }
-
-        .popup-content h3 {
-            margin-bottom: 1rem;
-        }
-
-        .popup-content input,
-        .popup-content textarea {
-            width: 100%;
-            margin-bottom: 1rem;
-            padding: 0.7rem;
-            border-radius: 5px;
-            border: none;
-            background: #333;
-            color: white;
-        }
-
-        .btn-submit {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: #e640a5;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-        } */
-
         .hero {
             display: flex;
             justify-content: center;
@@ -525,7 +382,7 @@
 
         .hero h1 {
             font-size: 3.2rem;
-/*             background: linear-gradient(to right, #ff4db8, #ff9a9e); */
+            /*             background: linear-gradient(to right, #ff4db8, #ff9a9e); */
             background: linear-gradient(to right, white, white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -648,27 +505,6 @@
             margin-bottom: 2rem;
             color: #ccc;
         }
-
-        /* .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-            max-width: 1100px;
-            margin: auto;
-        } */
-
-        /* .about-image img {
-            width: 300px;
-            border-radius: 1rem;
-            box-shadow: 0 0 15px rgba(255, 77, 184, 0.3);
-        } */
-
-        /* .about-text {
-            max-width: 600px;
-            text-align: left;
-        } */
 
         .features-grid {
             display: grid;
@@ -1458,72 +1294,79 @@
 
 
 
-.site-footer {
-    background-color: #111; /* Light background */
-    padding: 30px 0; /* Adjust padding as needed */
-    color: #ccc; /* Text color */
-}
+        .site-footer {
+            background-color: #111;
+            /* Light background */
+            padding: 30px 0;
+            /* Adjust padding as needed */
+            color: #ccc;
+            /* Text color */
+        }
 
 
-.site-footer li{
+        .site-footer li {
 
-    color: #ccc; /* Text color */
- color: var(--primary-color);
-}
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+            color: #ccc;
+            /* Text color */
+            color: var(--primary-color);
+        }
 
-.footer-section {
-    flex: 1 1 250px; /* Adjust section width as needed */
-    margin-bottom: 20px; /* Space between sections */
-}
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.footer-section h4{
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
+        .footer-section {
+            flex: 1 1 250px;
+            /* Adjust section width as needed */
+            margin-bottom: 20px;
+            /* Space between sections */
+        }
 
-.footer-section h3{
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
+        .footer-section h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
 
 
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.footer-section ul li {
-    margin-bottom: 5px;
-}
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
 
-.footer-section a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.footer-section a:hover {
-    color: #333;
-    color: var(--primary-color);
-}
+        .footer-section a:hover {
+            color: #333;
+            color: var(--primary-color);
+        }
 
-.footer-contact p {
-    margin-bottom: 5px;
-}
+        .footer-contact p {
+            margin-bottom: 5px;
+        }
 
-.social-icons {
-    margin-top: 10px;
-}
+        .social-icons {
+            margin-top: 10px;
+        }
 
 
         .footer-social a {
@@ -1537,12 +1380,12 @@
         }
 
 
-.footer-bottom{
+        .footer-bottom {
             text-align: center;
             margin-top: 2rem;
             font-size: 0.85rem;
             color: #888;
-}
+        }
 
         .specialized-tech-section {
             padding: 5rem 2rem;
@@ -1852,345 +1695,351 @@
 
 
 
-.about-section {
-    padding: 5rem 1.5rem;
-    background: #0d0d0d;
-    color: #eee;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+        .about-section {
+            padding: 5rem 1.5rem;
+            background: #0d0d0d;
+            color: #eee;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-.about-section h2 {
-    text-align: center;
-    /* font-size: 2.5rem; */
-    margin-bottom: 3rem;
-    color: #ccc; /* or var(--primary-color) */
-}
+        .about-section h2 {
+            text-align: center;
+            /* font-size: 2.5rem; */
+            margin-bottom: 3rem;
+            color: #ccc;
+            /* or var(--primary-color) */
+        }
 
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.about-image img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    border-radius: 1.2rem;
-    box-shadow: 0 0 25px rgba(255, 77, 184, 0.3);
-    transition: transform 0.3s ease;
-}
+        .about-image img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 1.2rem;
+            box-shadow: 0 0 25px rgba(255, 77, 184, 0.3);
+            transition: transform 0.3s ease;
+        }
 
-.about-image img:hover {
-    transform: scale(1.05);
-}
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
 
-.about-text {
-    flex: 1 1 400px;
-    max-width: 650px;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: left;
-}
+        .about-text {
+            flex: 1 1 400px;
+            max-width: 650px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: left;
+        }
 
-.about-text strong {
-    color: #fff;
-    font-weight: 600;
-}
+        .about-text strong {
+            color: #fff;
+            font-weight: 600;
+        }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .about-text {
-        font-size: 1rem;
-    }
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .about-text {
+                font-size: 1rem;
+            }
 
-    .about-section h2 {
-        font-size: 1.7rem;
-    }
-}
+            .about-section h2 {
+                font-size: 1.7rem;
+            }
+        }
 
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
 
-    .about-text {
-        text-align: center;
-        padding: 0 1rem;
-    }
+            .about-text {
+                text-align: center;
+                padding: 0 1rem;
+            }
 
-    .about-image img {
-        max-width: 250px;
-    }
-}
+            .about-image img {
+                max-width: 250px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .about-section {
-        padding: 3rem 1rem;
-    }
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 3rem 1rem;
+            }
 
-    .about-section h2 {
-        font-size: 1.7rem;
-    }
+            .about-section h2 {
+                font-size: 1.7rem;
+            }
 
-    .about-text {
-        font-size: 0.95rem;
-    }
+            .about-text {
+                font-size: 0.95rem;
+            }
 
-    .about-image img {
-        max-width: 200px;
-    }
-}
+            .about-image img {
+                max-width: 200px;
+            }
+        }
 
 
-/* # Career Styling */
+        /* # Career Styling */
 
-/* Career Container Layout */
-.career-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-    justify-content: space-between;
-}
+        /* Career Container Layout */
+        .career-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-content: space-between;
+        }
 
-/* Left Column: Job Listings */
-.job-listings {
-    flex: 1 1 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+        /* Left Column: Job Listings */
+        .job-listings {
+            flex: 1 1 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-/* Job Card Style */
-.job-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.2rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 12px rgba(255, 77, 184, 0.1);
-}
+        /* Job Card Style */
+        .job-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.2rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 12px rgba(255, 77, 184, 0.1);
+        }
 
-.job-card:hover {
-    transform: scale(1.01);
-    background: rgba(255, 255, 255, 0.08);
-}
+        .job-card:hover {
+            transform: scale(1.01);
+            background: rgba(255, 255, 255, 0.08);
+        }
 
-.job-card.active {
-    border: 2px solid var(--primary-color);
-    background: rgba(255, 255, 255, 0.12);
-}
+        .job-card.active {
+            border: 2px solid var(--primary-color);
+            background: rgba(255, 255, 255, 0.12);
+        }
 
-.job-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
-    color: #fff;
-}
+        .job-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            color: #fff;
+        }
 
-.job-card p {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-    color: #ccc;
-}
+        .job-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
 
-.job-card .badge {
-    background: #ff4db8;
-    padding: 0.3rem 0.7rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #000;
-    display: inline-block;
-}
+        .job-card .badge {
+            background: #ff4db8;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #000;
+            display: inline-block;
+        }
 
-/* Button Container in Card */
-.actions {
-    margin-top: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
+        /* Button Container in Card */
+        .actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
 
-.actions button {
-    border: none;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.7rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+        .actions button {
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.7rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-.actions button:hover {
-    background-color: #ff3399;
-}
+        .actions button:hover {
+            background-color: #ff3399;
+        }
 
-/* Right Column: Job Description */
-.job-description {
-    flex: 2 1 400px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    padding: 2rem;
-    color: #eee;
-    font-size: 1rem;
-    line-height: 1.6;
-}
+        /* Right Column: Job Description */
+        .job-description {
+            flex: 2 1 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            color: #eee;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
 
-/* Job Metadata List */
-.job-description .meta {
-    list-style: none;
-    padding-left: 0;
-    margin: 1rem 0;
-}
+        /* Job Metadata List */
+        .job-description .meta {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
 
-.job-description .meta li {
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem;
-}
+        .job-description .meta li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
 
-.fancy-list {
-    padding-left: 1.2rem;
-    margin: 1rem 0;
-}
+        .fancy-list {
+            padding-left: 1.2rem;
+            margin: 1rem 0;
+        }
 
-.fancy-list li {
-    list-style: disc;
-    margin-bottom: 0.5rem;
-}
+        .fancy-list li {
+            list-style: disc;
+            margin-bottom: 0.5rem;
+        }
 
-/* Popup Styles */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
+        /* Popup Styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
 
-.popup-content {
-    background: #1e1e1e;
-    padding: 2rem;
-    border-radius: 1rem;
-    width: 90%;
-    max-width: 500px;
-    color: #fff;
-    position: relative;
-}
+        .popup-content {
+            background: #1e1e1e;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            color: #fff;
+            position: relative;
+        }
 
-.popup-content h3 {
-    margin-bottom: 1rem;
-}
+        .popup-content h3 {
+            margin-bottom: 1rem;
+        }
 
-.popup-content input,
-.popup-content textarea {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 0.5rem;
-    background: #2c2c2c;
-    color: #fff;
-}
+        .popup-content input,
+        .popup-content textarea {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: #2c2c2c;
+            color: #fff;
+        }
 
-.popup-content button.btn-submit {
-    background-color: var(--primary-color);
-    border: none;
-    padding: 0.7rem 1.2rem;
-    color: #fff;
-    border-radius: 0.6rem;
-    cursor: pointer;
-}
+        .popup-content button.btn-submit {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            color: #fff;
+            border-radius: 0.6rem;
+            cursor: pointer;
+        }
 
-.popup-content button.btn-submit:hover {
-    background-color: #ff3399;
-}
+        .popup-content button.btn-submit:hover {
+            background-color: #ff3399;
+        }
 
-.close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: #ccc;
-}
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #ccc;
+        }
 
-/* Map Popup */
-#mapPopup .popup-content {
-    max-width: 600px;
-}
+        /* Map Popup */
+        #mapPopup .popup-content {
+            max-width: 600px;
+        }
 
-/* Responsive Behavior */
-@media (max-width: 1024px) {
-    .career-container {
-        flex-direction: column;
-    }
+        /* Responsive Behavior */
+        @media (max-width: 1024px) {
+            .career-container {
+                flex-direction: column;
+            }
 
-    .job-listings,
-    .job-description {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
+            .job-listings,
+            .job-description {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
 
-    .job-card {
-        font-size: 1rem;
-    }
-}
+            .job-card {
+                font-size: 1rem;
+            }
+        }
 
-@media (max-width: 600px) {
-    .popup-content {
-        padding: 1.2rem;
-    }
+        @media (max-width: 600px) {
+            .popup-content {
+                padding: 1.2rem;
+            }
 
-    .actions {
-        flex-direction: column;
-        gap: 0.7rem;
-    }
+            .actions {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
 
-    .actions button {
-        width: 100%;
-        text-align: center;
-    }
+            .actions button {
+                width: 100%;
+                text-align: center;
+            }
 
-    .job-description {
-        padding: 1.2rem;
-        font-size: 0.95rem;
-    }
+            .job-description {
+                padding: 1.2rem;
+                font-size: 0.95rem;
+            }
 
-    .job-card h3 {
-        font-size: 1rem;
-    }
+            .job-card h3 {
+                font-size: 1rem;
+            }
 
-    .job-card p {
-        font-size: 0.9rem;
-    }
-}
-
+            .job-card p {
+                font-size: 0.9rem;
+            }
+        }
 
         .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.7; /* Adjust to your preference */
-     transform: scale(1.1)
-}
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+            /* Adjust to your preference */
+            transform: scale(1.1)
+        }
 
+        @media (max-width: 767px) {
+            .background-video {
+                display: none;
+            }
+        }
     </style>
 
 
@@ -2207,609 +2056,539 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-
-<body>
-
-
-
-
-    <header class="main-header">
-        <div class="logo">
-            <img src="./lufonic-removebg-preview.png" alt="Lufonic Logo" />
-        </div>
-        <nav class="desktop-nav">
-            <a href="#home">Home</a>
-            <a href="#career">Career</a>
-            <a href="#products">Products</a>
-            <a href="#features">Features</a>
-            <a href="#specialized-tech">Technologies</a>
-            <a href="#about">About</a>
-        </nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
-    </header>
-    <div class="hamburger" id="hamburgerBtn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <div class="custom-mobile-menu" id="mobileMenu">
-        <a href="#about" class="menu-item" data-section="about"><i class="fas fa-info-circle"></i> About</a>
-        <a href="#services" class="menu-item" data-section="services"><i class="fas fa-cogs"></i> Services</a>
-        <a href="#career" class="menu-item" data-section="career"><i class="fas fa-user-tie"></i> Career</a>
-        <a href="#products" class="menu-item" data-section="products"><i class="fas fa-box-open"></i> Products</a>
-        <a href="#testimonials" class="menu-item" data-section="testimonials"><i class="fas fa-star"></i>
-            Testimonials</a>
-        <a href="#contact" class="menu-item" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
-    </div>
-
-    <section class="hero" id="home">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="tech.mp4" type="video/mp4" />
-        </video>
-        <h1 data-animate style="font-weight: 900; font-size: 3rem; font-family: 'Courier New', Courier, monospace; color: white">
-            We build <span class="typing" id="type-text"></span>
-        </h1>
-
-        <p class="hero-subtext">
-            At <strong>Lufonic</strong>, we merge design and technology to craft intelligent, intuitive, and impactful
-            digital
-            solutions.
-        </p>
-
-        <ul class="hero-highlights">
-            <li><span>✨</span> AI-powered Platforms</li>
-            <li><span>⚙️</span> Scalable Infrastructure</li>
-            <li><span>🌟</span> Design-Driven Interfaces</li>
-            <li><span>🚀</span> Future-Ready Solutions</li>
-        </ul>
-    </section>
-
-    <section id="career" data-animate>
-        <h2 class="section-title">🚀 Career at <span class="highlight">Lufonic</span></h2>
-        <div class="career-container">
-            <div class="job-listings">
-                <div class="job-card animate-card" data-job="job1">
-                    <h3>Software Engineer / Specialist<br><small>(DataStax & Cassandra)</small></h3>
-                    <p><i>📍 India - Gurgaon (Lufonic Site)</i></p>
-                    <span class="badge">Hybrid</span>
-                    <div class="actions">
-                        <button class="btn-apply" onclick="openApplyPopup()"><i class="fa-solid fa-paper-plane"></i>
-                            Apply</button>
-                        <button class="btn-map" onclick="showOnMap('Gurgaon, India')"><i
-                                class="fa-solid fa-map-location-dot"></i> See on Map</button>
-                    </div>
-                </div>
-                <div class="job-card animate-card" data-job="job2">
-                    <h3>Software Engineer</h3>
-                    <p><i>📍 Pune, India</i></p>
-                    <span class="badge">Hybrid</span>
-                    <div class="actions">
-                        <button class="btn-apply" onclick="openApplyPopup()"><i class="fa-solid fa-paper-plane"></i>
-                            Apply</button>
-                        <button class="btn-map" onclick="showOnMap('Pune, India')"><i
-                                class="fa-solid fa-map-location-dot"></i> See on Map</button>
-                    </div>
-                </div>
+    <body>
+        <header class="main-header">
+            <div class="logo">
+                <img src="./lufonic-removebg-preview.png" alt="Lufonic Logo" />
             </div>
-            <div class="job-description animate-fade">
-                <div id="job1" class="jd">
-                    <h3>Software Engineer / Specialist (DataStax & Cassandra)</h3>
-                    <ul class="meta">
-                        <li><strong>ID:</strong> 200628</li>
-                        <li><strong>Required Travel:</strong> Minimal</li>
-                        <li><strong>Managerial:</strong> No</li>
-                        <li><strong>Location:</strong> India- Gurgaon (Lufonic Site)</li>
-                    </ul>
-                    <h4>Who are we?</h4>
-                    <p>Lufonic helps those who build the future to make it amazing...</p>
-                    <h4>Key Responsibilities:</h4>
-                    <ul class="fancy-list">
-                        <li>Install, configure, and maintain DataStax Enterprise...</li>
-                    </ul>
-                </div>
-                <div id="job2" class="jd">
-                    <h3>Software Engineer</h3>
-                    <ul class="meta">
-                        <li><strong>ID:</strong> 200629</li>
-                        <li><strong>Location:</strong> Pune, India</li>
-                    </ul>
-                    <p><strong>Description:</strong> Design and develop cutting-edge web applications...</p>
-                </div>
+            <nav class="desktop-nav">
+                <a href="#home">Home</a>
+                <a href="#career">Career</a>
+                <a href="#products">Products</a>
+                <a href="#features">Features</a>
+                <a href="#specialized-tech">Technologies</a>
+                <a href="#about">About</a>
+            </nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
             </div>
+        </header>
+        <div class="hamburger" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
-        <div class="popup" id="applyPopup">
-            <div class="popup-content animate-popup">
-                <span class="close-btn" onclick="closeApplyPopup()">&times;</span>
-                <h3>Apply for this Job</h3>
-                <form>
-                    <input type="text" placeholder="Full Name" required />
-                    <input type="email" placeholder="Email Address" required />
-                    <input type="tel" placeholder="Phone Number" required />
-                    <textarea placeholder="Cover Letter (Optional)"></textarea>
-                    <input type="file" accept=".pdf,.doc,.docx" required />
-                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Submit
-                        Application</button>
-                </form>
-            </div>
+        <div class="custom-mobile-menu" id="mobileMenu">
+            <a href="#about" class="menu-item" data-section="about"><i class="fas fa-info-circle"></i> About</a>
+            <a href="#services" class="menu-item" data-section="services"><i class="fas fa-cogs"></i> Services</a>
+            <a href="#career" class="menu-item" data-section="career"><i class="fas fa-user-tie"></i> Career</a>
+            <a href="#products" class="menu-item" data-section="products"><i class="fas fa-box-open"></i> Products</a>
+            <a href="#testimonials" class="menu-item" data-section="testimonials"><i class="fas fa-star"></i>
+                Testimonials</a>
+            <a href="#contact" class="menu-item" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
         </div>
 
-        <div id="mapPopup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="closeMapPopup()">&times;</span>
-                <h3>Job Location</h3>
-                <div id="map" style="width: 100%; height: 300px;"></div>
-                <p id="distanceInfo"></p>
-            </div>
-        </div>
-    </section>
+        <section class="hero" id="home">
+            <video autoplay muted loop playsinline class="background-video">
+                <source src="tech.mp4" type="video/mp4" />
+            </video>
+            <h1 data-animate
+                style="font-weight: 900; font-size: 3rem; font-family: 'Courier New', Courier, monospace; color: white">
+                We build <span class="typing" id="type-text"></span>
+            </h1>
 
-
-    <section id="products" data-animate>
-        <h2 class="section-title animate-fade">🚀 Our Products</h2>
-        <div class="modern-carousel-container animate-slide">
-            <div class="modern-carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide"><img
-                            src="https://cdn.pixabay.com/photo/2024/03/17/18/04/ai-generated-8639493_1280.jpg"
-                            alt="Tindify Screenshot 1"></div>
-                    <div class="carousel-slide"><img
-                            src="https://cdn.pixabay.com/photo/2024/04/26/18/06/ai-generated-8722381_1280.jpg"
-                            alt="Tindify Screenshot 2"></div>
-                    <div class="carousel-slide"><img
-                            src="	https://cdn.pixabay.com/photo/2020/02/28/22/39/love-4888774_1280.jpg"
-                            alt="Tindify Screenshot 3"></div>
-                    <div class="carousel-slide"><img
-                            src="https://cdn.pixabay.com/photo/2017/08/01/08/11/sunset-2563408_1280.jpg"
-                            alt="Tindify Screenshot 4"></div>
-                    <div class="carousel-slide"><img
-                            src="https://cdn.pixabay.com/photo/2017/08/01/00/57/people-2562438_1280.jpg"
-                            alt="Tindify Screenshot 4"></div>
-
-
-                </div>
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
-            </div>
-        </div>
-        <p class="product-description">
-            💘 <strong>Tindify</strong> – A futuristic dating app powered by AI, redefining how connections are made.
-            Modern UI meets meaningful swipes.
-        </p>
-    </section>
-
-
-
-<!-- 
-    <section class="about-section" id="about">
-        <h2>Who We Are</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="./lufonic-removebg-preview.png" alt="About Lufonic">
-            </div>
-            <div class="about-text">
-                <p><strong>Lufonic</strong> is not just a tech company, we're a vision factory. We design AI-driven
-                    platforms, beautiful mobile apps, and scalable digital products with futuristic flair. Our mission
-                    is to transform dreams into intelligent, user-friendly realities.</p>
-                <p>With a team of passionate developers, designers, and visionaries, we deliver performance,
-                    scalability, and unforgettable digital experiences.</p>
-            </div>
-        </div>
-    </section> -->
-
-
-<section class="about-section" id="about">
-    <h2>Who We Are</h2>
-    <div class="about-content">
-        <div class="about-image">
-            <img src="./lufonic-removebg-preview.png" alt="About Lufonic">
-        </div>
-        <div class="about-text">
-            <p><strong>Lufonic</strong> is not just a tech company, we're a vision factory. We design AI-driven
-                platforms, beautiful mobile apps, and scalable digital products with futuristic flair. Our mission
-                is to transform dreams into intelligent, user-friendly realities.</p>
-            <p>With a team of passionate developers, designers, and visionaries, we deliver performance,
-                scalability, and unforgettable digital experiences.</p>
-        </div>
-    </div>
-</section>
-
-
-    <section class="specialized-tech-section" id="specialized-tech">
-        <h2 class="section-heading">🧠 Specialized Technologies</h2>
-        <div class="tech-grid">
-            <div class="tech-card">
-                <i class="fab fa-react"></i>
-                <h4>React & Next.js</h4>
-                <p>High-performance UI libraries powering dynamic user experiences.</p>
-            </div>
-            <div class="tech-card">
-                <i class="fab fa-node"></i>
-                <h4>Node.js & Express</h4>
-                <p>Scalable backend APIs built with efficiency and modularity.</p>
-            </div>
-            <div class="tech-card">
-                <i class="fab fa-java"></i>
-                <h4>Spring Boot</h4>
-                <p>Robust enterprise-grade backend framework for microservices.</p>
-            </div>
-            <div class="tech-card">
-                <i class="fas fa-database"></i>
-                <h4>MongoDB & PostgreSQL</h4>
-                <p>NoSQL and relational databases optimized for diverse use cases.</p>
-            </div>
-            <div class="tech-card">
-                <i class="fab fa-aws"></i>
-                <h4>AWS & GCP</h4>
-                <p>Cloud platforms leveraged for scalable, secure infrastructure.</p>
-            </div>
-            <div class="tech-card">
-                <i class="fas fa-brain"></i>
-                <h4>AI & ML Models</h4>
-                <p>Custom-trained models to drive personalization and automation.</p>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section class="features-section" id="features">
-        <h2 class="features-title animate-fade">🌟 Why Choose Lufonic?</h2>
-        <div class="features-grid">
-            <div class="feature-box animate-fade">
-                <i class="fas fa-robot"></i>
-                <h4>AI-First Solutions</h4>
-                <p>We integrate artificial intelligence at every step to future-proof your business.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-laptop-code"></i>
-                <h4>Modern Tech Stack</h4>
-                <p>From React to Spring Boot, we use only the most performant technologies.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-layer-group"></i>
-                <h4>Scalable Architecture</h4>
-                <p>Built for growth, our platforms scale seamlessly with your user base.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-palette"></i>
-                <h4>Futuristic Design</h4>
-                <p>Visual storytelling through 3D avatars, dynamic layouts, and stunning UI.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-cloud"></i>
-                <h4>Cloud-Native Approach</h4>
-                <p>Harnessing the power of AWS, GCP, and Azure for robust deployments.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-bolt"></i>
-                <h4>Lightning Performance</h4>
-                <p>Our code is optimized for speed, delivering blazing-fast user experiences.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-shield-alt"></i>
-                <h4>Enterprise-Grade Security</h4>
-                <p>Security-first architecture protects your data and ensures compliance.</p>
-            </div>
-            <div class="feature-box animate-fade">
-                <i class="fas fa-users"></i>
-                <h4>User-Centric UX</h4>
-                <p>Every pixel is designed with empathy, ensuring delightful user journeys.</p>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section id="about" class="about-section-theme">
-        <div class="glow-circle top-left"></div>
-        <div class="glow-circle bottom-right"></div>
-        <h2 class="section-heading">About Us</h2>
-        <p class="section-subtext">
-            At <strong style="color:#ff4db8;">Lufonic</strong>, we redefine innovation. We are a futuristic tech company
-            delivering <span style="color:#61dafb; font-weight: 600;">AI-driven</span>, <span
-                style="color:#9b5de5; font-weight: 600;">scalable platforms</span> and intelligent software solutions.
-            With creative minds and cutting-edge tech, we architect experiences that shape the future.
-        </p>
-    </section>
-
-
-    <!-- <footer class="site-footer">
-        <div class="footer-glow"></div>
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>Lufonic</h3>
-                <p>Building futuristic, AI-powered software and digital experiences that scale.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#career">Careers</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-envelope"></i> social@lufonic.com </p>
-                <p><i class="fas fa-phone-alt"></i> +91 6388282031</p>
-                <p><i class="fas fa-map-marker-alt"></i> Gurugram, India</p>
-            </div>
-            <div class="footer-social">
-                <h4>Connect with Us</h4>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/lufonic-technologies-75a873372/" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/lufonic/" aria-label="Instagram"><i
-                            class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 <strong>Lufonic</strong>. Built with <i class="fas fa-heart"></i> futuristic tech & passion.
+            <p class="hero-subtext">
+                At <strong>Lufonic</strong>, we merge design and technology to craft intelligent, intuitive, and impactful
+                digital
+                solutions.
             </p>
-        </div>
-    </footer> -->
-   
-<footer class="site-footer">
-    <div class="footer-glow"></div>
-    <div class="footer-container">
-        <div class="footer-section footer-about">
-            <h3>Lufonic</h3>
-            <p>Building futuristic, AI-powered software and digital experiences that scale.</p>
-        </div>
-        <div class="footer-section footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#career">Careers</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+            <ul class="hero-highlights">
+                <li><span>✨</span> AI-powered Platforms</li>
+                <li><span>⚙️</span> Scalable Infrastructure</li>
+                <li><span>🌟</span> Design-Driven Interfaces</li>
+                <li><span>🚀</span> Future-Ready Solutions</li>
             </ul>
-        </div>
-        <div class="footer-section footer-contact">
-            <h4>Contact Us</h4>
-            <p><i class="fas fa-envelope"></i> social@lufonic.com </p>
-            <p><i class="fas fa-phone-alt"></i> +91 6388282031</p>
-            <p><i class="fas fa-map-marker-alt"></i> Gurugram, India</p>
-        </div>
-        <div class="footer-section footer-social">
-            <h4>Connect with Us</h4>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/lufonic-technologies-75a873372/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/lufonic/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </section>
+
+        <section id="career" data-animate>
+            <h2 class="section-title">🚀 Career at <span class="highlight">Lufonic</span></h2>
+            <div class="career-container">
+                <div class="job-listings">
+                    <div class="job-card animate-card" data-job="job1">
+                        <h3>Software Engineer / Specialist<br><small>(DataStax & Cassandra)</small></h3>
+                        <p><i>📍 India - Gurgaon (Lufonic Site)</i></p>
+                        <span class="badge">Hybrid</span>
+                        <div class="actions">
+                            <button class="btn-apply" onclick="openApplyPopup()"><i class="fa-solid fa-paper-plane"></i>
+                                Apply</button>
+                            <button class="btn-map" onclick="showOnMap('Gurgaon, India')"><i
+                                    class="fa-solid fa-map-location-dot"></i> See on Map</button>
+                        </div>
+                    </div>
+                    <div class="job-card animate-card" data-job="job2">
+                        <h3>Software Engineer</h3>
+                        <p><i>📍 Pune, India</i></p>
+                        <span class="badge">Hybrid</span>
+                        <div class="actions">
+                            <button class="btn-apply" onclick="openApplyPopup()"><i class="fa-solid fa-paper-plane"></i>
+                                Apply</button>
+                            <button class="btn-map" onclick="showOnMap('Pune, India')"><i
+                                    class="fa-solid fa-map-location-dot"></i> See on Map</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-description animate-fade">
+                    <div id="job1" class="jd">
+                        <h3>Software Engineer / Specialist (DataStax & Cassandra)</h3>
+                        <ul class="meta">
+                            <li><strong>ID:</strong> 200628</li>
+                            <li><strong>Required Travel:</strong> Minimal</li>
+                            <li><strong>Managerial:</strong> No</li>
+                            <li><strong>Location:</strong> India- Gurgaon (Lufonic Site)</li>
+                        </ul>
+                        <h4>Who are we?</h4>
+                        <p>Lufonic helps those who build the future to make it amazing...</p>
+                        <h4>Key Responsibilities:</h4>
+                        <ul class="fancy-list">
+                            <li>Install, configure, and maintain DataStax Enterprise...</li>
+                        </ul>
+                    </div>
+                    <div id="job2" class="jd">
+                        <h3>Software Engineer</h3>
+                        <ul class="meta">
+                            <li><strong>ID:</strong> 200629</li>
+                            <li><strong>Location:</strong> Pune, India</li>
+                        </ul>
+                        <p><strong>Description:</strong> Design and develop cutting-edge web applications...</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 <strong>Lufonic</strong>. Built with <i class="fas fa-heart"></i> futuristic tech & passion.</p>
-    </div>
-</footer>
 
-   
-   
-   
-   <script>
-        const phrases = ["smart software.", "AI solutions.", "scalable platforms.", "beautiful apps."];
-        const el = document.getElementById("type-text");
-        let i = 0, j = 0, currentPhrase = [], isDeleting = false;
+            <div class="popup" id="applyPopup">
+                <div class="popup-content animate-popup">
+                    <span class="close-btn" onclick="closeApplyPopup()">&times;</span>
+                    <h3>Apply for this Job</h3>
+                    <form>
+                        <input type="text" placeholder="Full Name" required />
+                        <input type="email" placeholder="Email Address" required />
+                        <input type="tel" placeholder="Phone Number" required />
+                        <textarea placeholder="Cover Letter (Optional)"></textarea>
+                        <input type="file" accept=".pdf,.doc,.docx" required />
+                        <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Submit
+                            Application</button>
+                    </form>
+                </div>
+            </div>
 
-        function loop() {
-            el.innerHTML = currentPhrase.join('');
-            if (!isDeleting && j <= phrases[i].length) {
-                currentPhrase.push(phrases[i][j]);
-                j++;
-            }
-            if (isDeleting && j <= phrases[i].length) {
-                currentPhrase.pop();
-                j--;
-            }
-            if (j === phrases[i].length) {
-                isDeleting = true;
-                setTimeout(loop, 1000);
-                return;
-            }
-            if (j === 0 && isDeleting) {
-                isDeleting = false;
-                i = (i + 1) % phrases.length;
-            }
-            setTimeout(loop, isDeleting ? 50 : 150);
-        }
-        loop();
+            <div id="mapPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closeMapPopup()">&times;</span>
+                    <h3>Job Location</h3>
+                    <div id="map" style="width: 100%; height: 300px;"></div>
+                    <p id="distanceInfo"></p>
+                </div>
+            </div>
+        </section>
 
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        }
+        <section id="products" data-animate>
+            <h2 class="section-title animate-fade">🚀 Our Products</h2>
+            <div class="modern-carousel-container animate-slide">
+                <div class="modern-carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><img
+                                src="https://cdn.pixabay.com/photo/2024/03/17/18/04/ai-generated-8639493_1280.jpg"
+                                alt="Tindify Screenshot 1"></div>
+                        <div class="carousel-slide"><img
+                                src="https://cdn.pixabay.com/photo/2024/04/26/18/06/ai-generated-8722381_1280.jpg"
+                                alt="Tindify Screenshot 2"></div>
+                        <div class="carousel-slide"><img
+                                src="	https://cdn.pixabay.com/photo/2020/02/28/22/39/love-4888774_1280.jpg"
+                                alt="Tindify Screenshot 3"></div>
+                        <div class="carousel-slide"><img
+                                src="https://cdn.pixabay.com/photo/2017/08/01/08/11/sunset-2563408_1280.jpg"
+                                alt="Tindify Screenshot 4"></div>
+                        <div class="carousel-slide"><img
+                                src="https://cdn.pixabay.com/photo/2017/08/01/00/57/people-2562438_1280.jpg"
+                                alt="Tindify Screenshot 4"></div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+                </div>
+            </div>
+            <p class="product-description">
+                💘 <strong>Tindify</strong> – A futuristic dating app powered by AI, redefining how connections are made.
+                Modern UI meets meaningful swipes.
+            </p>
+        </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
+        <section class="about-section" id="about">
+            <h2>Who We Are</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./lufonic-removebg-preview.png" alt="About Lufonic">
+                </div>
+                <div class="about-text">
+                    <p><strong>Lufonic</strong> is not just a tech company, we're a vision factory. We design AI-driven
+                        platforms, beautiful mobile apps, and scalable digital products with futuristic flair. Our mission
+                        is to transform dreams into intelligent, user-friendly realities.</p>
+                    <p>With a team of passionate developers, designers, and visionaries, we deliver performance,
+                        scalability, and unforgettable digital experiences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="specialized-tech-section" id="specialized-tech">
+            <h2 class="section-heading">🧠 Specialized Technologies</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fab fa-react"></i>
+                    <h4>React & Next.js</h4>
+                    <p>High-performance UI libraries powering dynamic user experiences.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-node"></i>
+                    <h4>Node.js & Express</h4>
+                    <p>Scalable backend APIs built with efficiency and modularity.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-java"></i>
+                    <h4>Spring Boot</h4>
+                    <p>Robust enterprise-grade backend framework for microservices.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-database"></i>
+                    <h4>MongoDB & PostgreSQL</h4>
+                    <p>NoSQL and relational databases optimized for diverse use cases.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-aws"></i>
+                    <h4>AWS & GCP</h4>
+                    <p>Cloud platforms leveraged for scalable, secure infrastructure.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>AI & ML Models</h4>
+                    <p>Custom-trained models to drive personalization and automation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+            <h2 class="features-title animate-fade">🌟 Why Choose Lufonic?</h2>
+            <div class="features-grid">
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI-First Solutions</h4>
+                    <p>We integrate artificial intelligence at every step to future-proof your business.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Modern Tech Stack</h4>
+                    <p>From React to Spring Boot, we use only the most performant technologies.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>Scalable Architecture</h4>
+                    <p>Built for growth, our platforms scale seamlessly with your user base.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-palette"></i>
+                    <h4>Futuristic Design</h4>
+                    <p>Visual storytelling through 3D avatars, dynamic layouts, and stunning UI.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Cloud-Native Approach</h4>
+                    <p>Harnessing the power of AWS, GCP, and Azure for robust deployments.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Lightning Performance</h4>
+                    <p>Our code is optimized for speed, delivering blazing-fast user experiences.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Enterprise-Grade Security</h4>
+                    <p>Security-first architecture protects your data and ensures compliance.</p>
+                </div>
+                <div class="feature-box animate-fade">
+                    <i class="fas fa-users"></i>
+                    <h4>User-Centric UX</h4>
+                    <p>Every pixel is designed with empathy, ensuring delightful user journeys.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section-theme">
+            <div class="glow-circle top-left"></div>
+            <div class="glow-circle bottom-right"></div>
+            <h2 class="section-heading">About Us</h2>
+            <p class="section-subtext">
+                At <strong style="color:#ff4db8;">Lufonic</strong>, we redefine innovation. We are a futuristic tech company
+                delivering <span style="color:#61dafb; font-weight: 600;">AI-driven</span>, <span
+                    style="color:#9b5de5; font-weight: 600;">scalable platforms</span> and intelligent software solutions.
+                With creative minds and cutting-edge tech, we architect experiences that shape the future.
+            </p>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-glow"></div>
+            <div class="footer-container">
+                <div class="footer-section footer-about">
+                    <h3>Lufonic</h3>
+                    <p>Building futuristic, AI-powered software and digital experiences that scale.</p>
+                </div>
+                <div class="footer-section footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#career">Careers</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> social@lufonic.com </p>
+                    <p><i class="fas fa-phone-alt"></i> +91 6388282031</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gurugram, India</p>
+                </div>
+                <div class="footer-section footer-social">
+                    <h4>Connect with Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/lufonic-technologies-75a873372/" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/lufonic/" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>Lufonic</strong>. Built with <i class="fas fa-heart"></i> futuristic tech & passion.
+                </p>
+            </div>
+        </footer>
+
+
+
+
+        <script>
+            const phrases = ["smart software.", "AI solutions.", "scalable platforms.", "beautiful apps."];
+            const el = document.getElementById("type-text");
+            let i = 0, j = 0, currentPhrase = [], isDeleting = false;
+
+            function loop() {
+                el.innerHTML = currentPhrase.join('');
+                if (!isDeleting && j <= phrases[i].length) {
+                    currentPhrase.push(phrases[i][j]);
+                    j++;
                 }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+                if (isDeleting && j <= phrases[i].length) {
+                    currentPhrase.pop();
+                    j--;
+                }
+                if (j === phrases[i].length) {
+                    isDeleting = true;
+                    setTimeout(loop, 1000);
+                    return;
+                }
+                if (j === 0 && isDeleting) {
+                    isDeleting = false;
+                    i = (i + 1) % phrases.length;
+                }
+                setTimeout(loop, isDeleting ? 50 : 150);
+            }
+            loop();
 
-        function showTab(id) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
-
-
-        let currentSlide = 1;
-        const track = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        function updateCarousel() {
-            slides.forEach(slide => slide.classList.remove('center'));
-            slides[currentSlide].classList.add('center');
-            const offset = (currentSlide - 1) * -33.33;
-            track.style.transform = `translateX(${offset}%)`;
-        }
-
-        function moveCarousel(direction) {
-            currentSlide += direction;
-            if (currentSlide < 0) currentSlide = totalSlides - 1;
-            if (currentSlide >= totalSlides) currentSlide = 0;
-            updateCarousel();
-        }
-
-        // Auto scroll
-        let carouselInterval = setInterval(() => {
-            moveCarousel(1);
-        }, 3000);
-
-        // Pause on hover
-        const carouselContainer = document.querySelector('.modern-carousel-container');
-        carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-        carouselContainer.addEventListener('mouseleave', () => carouselInterval = setInterval(() => moveCarousel(1), 3000));
-
-        updateCarousel();
-
-        document.querySelectorAll('.job-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const jobId = card.getAttribute('data-job');
-
-                document.querySelectorAll('.job-card').forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-
-                document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
-                document.getElementById(jobId).classList.add('active');
-            });
-        });
-
-        function openApplyPopup() {
-            document.getElementById('applyPopup').style.display = 'flex';
-        }
-
-        function closeApplyPopup() {
-            document.getElementById('applyPopup').style.display = 'none';
-        }
-
-        function closeMapPopup() {
-            document.getElementById('mapPopup').style.display = 'none';
-        }
-
-        function showOnMap(locationName) {
-            if (!navigator.geolocation) {
-                alert('Geolocation not supported by your browser');
-                return;
+            function toggleMenu() {
+                const menu = document.getElementById('mobileMenu');
+                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
             }
 
-            navigator.geolocation.getCurrentPosition(position => {
-                const userLat = position.coords.latitude;
-                const userLng = position.coords.longitude;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-                const geocoderUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}`;
+            function showTab(id) {
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+            }
 
-                fetch(geocoderUrl)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.length === 0) {
-                            alert('Location not found');
-                            return;
-                        }
 
-                        const jobLat = parseFloat(data[0].lat);
-                        const jobLng = parseFloat(data[0].lon);
-
-                        const distance = getDistanceFromLatLonInKm(userLat, userLng, jobLat, jobLng);
-
-                        const map = L.map('map').setView([jobLat, jobLng], 10);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; OpenStreetMap contributors'
-                        }).addTo(map);
-
-                        L.marker([userLat, userLng]).addTo(map).bindPopup("You").openPopup();
-                        L.marker([jobLat, jobLng]).addTo(map).bindPopup(locationName);
-
-                        document.getElementById('distanceInfo').innerText = `Distance from your location: ${distance.toFixed(2)} km`;
-                        document.getElementById('mapPopup').style.display = 'flex';
-                    });
-            });
-        }
-
-        function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-            const R = 6371; // Radius of the earth in km
-            const dLat = deg2rad(lat2 - lat1);
-            const dLon = deg2rad(lon2 - lon1);
-            const a =
-                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            return R * c;
-        }
-
-        function deg2rad(deg) {
-            return deg * (Math.PI / 180);
-        }
-
-        let currentIndex = 0;
-
-        function moveCarousel(direction) {
+            let currentSlide = 1;
             const track = document.querySelector('.carousel-track');
             const slides = document.querySelectorAll('.carousel-slide');
             const totalSlides = slides.length;
 
-            currentIndex += direction;
-            if (currentIndex < 0) currentIndex = totalSlides - 1;
-            if (currentIndex >= totalSlides) currentIndex = 0;
+            function updateCarousel() {
+                slides.forEach(slide => slide.classList.remove('center'));
+                slides[currentSlide].classList.add('center');
+                const offset = (currentSlide - 1) * -33.33;
+                track.style.transform = `translateX(${offset}%)`;
+            }
 
-            const offset = currentIndex * -100;
-            track.style.transform = `translateX(${offset}%)`;
-        }
+            function moveCarousel(direction) {
+                currentSlide += direction;
+                if (currentSlide < 0) currentSlide = totalSlides - 1;
+                if (currentSlide >= totalSlides) currentSlide = 0;
+                updateCarousel();
+            }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const firstCard = document.querySelector('.job-card');
-            const firstJobId = firstCard.getAttribute('data-job');
+            // Auto scroll
+            let carouselInterval = setInterval(() => {
+                moveCarousel(1);
+            }, 3000);
 
-            firstCard.classList.add('active');
+            // Pause on hover
+            const carouselContainer = document.querySelector('.modern-carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+            carouselContainer.addEventListener('mouseleave', () => carouselInterval = setInterval(() => moveCarousel(1), 3000));
 
-            document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
-            document.getElementById(firstJobId).classList.add('active');
-        });
+            updateCarousel();
 
+            document.querySelectorAll('.job-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const jobId = card.getAttribute('data-job');
 
+                    document.querySelectorAll('.job-card').forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
 
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const hamburger = document.getElementById("hamburgerBtn");
-            const mobileMenu = document.getElementById("mobileMenu");
-
-            hamburger.addEventListener("click", function () {
-                mobileMenu.classList.toggle("show");
-            });
-
-            document.addEventListener("click", function (e) {
-                if (
-                    mobileMenu.classList.contains("show") &&
-                    !mobileMenu.contains(e.target) &&
-                    !hamburger.contains(e.target)
-                ) {
-                    mobileMenu.classList.remove("show");
-                }
-            });
-
-            document.querySelectorAll(".menu-item").forEach((item) => {
-                item.addEventListener("click", () => {
-                    mobileMenu.classList.remove("show");
+                    document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
+                    document.getElementById(jobId).classList.add('active');
                 });
             });
-        });
-    </script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</body>
 
+            function openApplyPopup() {
+                document.getElementById('applyPopup').style.display = 'flex';
+            }
+
+            function closeApplyPopup() {
+                document.getElementById('applyPopup').style.display = 'none';
+            }
+
+            function closeMapPopup() {
+                document.getElementById('mapPopup').style.display = 'none';
+            }
+
+            function showOnMap(locationName) {
+                if (!navigator.geolocation) {
+                    alert('Geolocation not supported by your browser');
+                    return;
+                }
+
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    const geocoderUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}`;
+
+                    fetch(geocoderUrl)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.length === 0) {
+                                alert('Location not found');
+                                return;
+                            }
+
+                            const jobLat = parseFloat(data[0].lat);
+                            const jobLng = parseFloat(data[0].lon);
+
+                            const distance = getDistanceFromLatLonInKm(userLat, userLng, jobLat, jobLng);
+
+                            const map = L.map('map').setView([jobLat, jobLng], 10);
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; OpenStreetMap contributors'
+                            }).addTo(map);
+
+                            L.marker([userLat, userLng]).addTo(map).bindPopup("You").openPopup();
+                            L.marker([jobLat, jobLng]).addTo(map).bindPopup(locationName);
+
+                            document.getElementById('distanceInfo').innerText = `Distance from your location: ${distance.toFixed(2)} km`;
+                            document.getElementById('mapPopup').style.display = 'flex';
+                        });
+                });
+            }
+
+            function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+                const R = 6371; // Radius of the earth in km
+                const dLat = deg2rad(lat2 - lat1);
+                const dLon = deg2rad(lon2 - lon1);
+                const a =
+                    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c;
+            }
+
+            function deg2rad(deg) {
+                return deg * (Math.PI / 180);
+            }
+
+            let currentIndex = 0;
+
+            function moveCarousel(direction) {
+                const track = document.querySelector('.carousel-track');
+                const slides = document.querySelectorAll('.carousel-slide');
+                const totalSlides = slides.length;
+
+                currentIndex += direction;
+                if (currentIndex < 0) currentIndex = totalSlides - 1;
+                if (currentIndex >= totalSlides) currentIndex = 0;
+
+                const offset = currentIndex * -100;
+                track.style.transform = `translateX(${offset}%)`;
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const firstCard = document.querySelector('.job-card');
+                const firstJobId = firstCard.getAttribute('data-job');
+
+                firstCard.classList.add('active');
+
+                document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
+                document.getElementById(firstJobId).classList.add('active');
+            });
+
+
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const hamburger = document.getElementById("hamburgerBtn");
+                const mobileMenu = document.getElementById("mobileMenu");
+
+                hamburger.addEventListener("click", function () {
+                    mobileMenu.classList.toggle("show");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (
+                        mobileMenu.classList.contains("show") &&
+                        !mobileMenu.contains(e.target) &&
+                        !hamburger.contains(e.target)
+                    ) {
+                        mobileMenu.classList.remove("show");
+                    }
+                });
+
+                document.querySelectorAll(".menu-item").forEach((item) => {
+                    item.addEventListener("click", () => {
+                        mobileMenu.classList.remove("show");
+                    });
+                });
+            });
+        </script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    </body>
 </html>
