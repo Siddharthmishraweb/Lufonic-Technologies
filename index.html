@@ -2936,41 +2936,41 @@
          document.getElementById(id).classList.add("active");
       }
 
-      let currentSlide = 1;
-      const track = document.querySelector(".carousel-track");
-      const slides = document.querySelectorAll(".carousel-slide");
-      const totalSlides = slides.length;
+      // let currentSlide = 1;
+      // const track = document.querySelector(".carousel-track");
+      // const slides = document.querySelectorAll(".carousel-slide");
+      // const totalSlides = slides.length;
 
-      function updateCarousel() {
-         slides.forEach((slide) => slide.classList.remove("center"));
-         slides[currentSlide].classList.add("center");
-         const offset = (currentSlide - 1) * -33.33;
-         track.style.transform = `translateX(${offset}%)`;
-      }
+      // function updateCarousel() {
+      //    slides.forEach((slide) => slide.classList.remove("center"));
+      //    slides[currentSlide].classList.add("center");
+      //    const offset = (currentSlide - 1) * -33.33;
+      //    track.style.transform = `translateX(${offset}%)`;
+      // }
 
-      function moveCarousel(direction) {
-         currentSlide += direction;
-         if (currentSlide < 0) currentSlide = totalSlides - 1;
-         if (currentSlide >= totalSlides) currentSlide = 0;
-         updateCarousel();
-      }
+      // function moveCarousel(direction) {
+      //    currentSlide += direction;
+      //    if (currentSlide < 0) currentSlide = totalSlides - 1;
+      //    if (currentSlide >= totalSlides) currentSlide = 0;
+      //    updateCarousel();
+      // }
 
-      let carouselInterval = setInterval(() => {
-         moveCarousel(1);
-      }, 3000);
+      // let carouselInterval = setInterval(() => {
+      //    moveCarousel(1);
+      // }, 3000);
 
-      const carouselContainer = document.querySelector(
-         ".modern-carousel-container",
-      );
-      carouselContainer.addEventListener("mouseenter", () =>
-         clearInterval(carouselInterval),
-      );
-      carouselContainer.addEventListener(
-         "mouseleave",
-         () => (carouselInterval = setInterval(() => moveCarousel(1), 3000)),
-      );
+      // const carouselContainer = document.querySelector(
+      //    ".modern-carousel-container",
+      // );
+      // carouselContainer.addEventListener("mouseenter", () =>
+      //    clearInterval(carouselInterval),
+      // );
+      // carouselContainer.addEventListener(
+      //    "mouseleave",
+      //    () => (carouselInterval = setInterval(() => moveCarousel(1), 3000)),
+      // );
 
-      updateCarousel();
+      // updateCarousel();
 
       document.querySelectorAll(".job-card").forEach((card) => {
          card.addEventListener("click", () => {
