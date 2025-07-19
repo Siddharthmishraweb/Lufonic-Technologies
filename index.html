@@ -2110,6 +2110,54 @@
          background: var(--dark-org);
          color: var(--dark-color);
       }
+
+
+
+      .slide {
+         backface-visibility: hidden;
+         -webkit-backface-visibility: hidden;
+         transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+         will-change: transform, opacity;
+      }
+
+      .slide[data-status="active"] {
+         opacity: 1;
+         transform: translateY(0%) translateX(0%) translateZ(0px) scale(1);
+         z-index: 10;
+      }
+
+      .slide[data-status="next"] {
+         opacity: 0.85;
+         transform: translateY(4%) translateX(18%) translateZ(-50px) scale(0.92);
+         z-index: 9;
+      }
+
+      .slide[data-status="prev"] {
+         opacity: 0.85;
+         transform: translateY(4%) translateX(-18%) translateZ(-50px) scale(0.92);
+         z-index: 9;
+      }
+
+      .slide[data-status="background-next"] {
+         opacity: 0.6;
+         transform: translateY(8%) translateX(30%) translateZ(-100px) scale(0.84);
+         z-index: 8;
+      }
+
+      .slide[data-status="background-prev"] {
+         opacity: 0.6;
+         transform: translateY(8%) translateX(-30%) translateZ(-100px) scale(0.84);
+         z-index: 8;
+      }
+
+      .slide[data-status="hidden"] {
+         opacity: 0;
+         transform: translateY(12%) translateX(0%) translateZ(-150px) scale(0.76);
+         z-index: 1;
+         pointer-events: none;
+      }
+
+
    </style>
    <script src="https://kit.fontawesome.com/c2b7333601.js" crossorigin="anonymous"></script>
 
@@ -2289,40 +2337,88 @@
 
    <section id="products" data-animate style="background: linear-gradient(to left, #0d0d0d, #1c1c1c);">
       <h2 class="section-title animate-fade">🚀 Our Products</h2>
-      <div class="modern-carousel-container animate-slide">
-         <div class="modern-carousel">
-            <div class="carousel-track">
-               <div class="carousel-slide">
-                  <img src="https://cdn.pixabay.com/photo/2024/03/17/18/04/ai-generated-8639493_1280.jpg"
-                     alt="Tindify Screenshot 1" />
+      <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
+         <main id="slider-container" class="relative w-full h-[400px] sm:h-[380px] md:h-[360px] [perspective:1200px]">
+            <article
+               class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+               <div style="display: flex; justify-content: center;">
+                  <img src="./home1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./home2.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./dating1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+            
                </div>
-               <div class="carousel-slide">
-                  <img src="https://cdn.pixabay.com/photo/2024/04/26/18/06/ai-generated-8722381_1280.jpg"
-                     alt="Tindify Screenshot 2" />
+               <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                  <div>
+                     <p class="font-semibold text-stone-800 text-sm">Home Page</p>
+                  </div>
                </div>
-               <div class="carousel-slide">
-                  <img src="	https://cdn.pixabay.com/photo/2020/02/28/22/39/love-4888774_1280.jpg"
-                     alt="Tindify Screenshot 3" />
+            </article>
+
+            <article
+               class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+               <div style="display: flex; justify-content: center;">
+                  <img src="./dating2.json.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./dating3.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./dating4.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+            
                </div>
-               <div class="carousel-slide">
-                  <img src="https://cdn.pixabay.com/photo/2017/08/01/08/11/sunset-2563408_1280.jpg"
-                     alt="Tindify Screenshot 4" />
+               <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                  <div>
+                     <p class="font-semibold text-stone-800 text-sm">Explore Page</p>
+                  </div>
                </div>
-               <div class="carousel-slide">
-                  <img src="https://cdn.pixabay.com/photo/2017/08/01/00/57/people-2562438_1280.jpg"
-                     alt="Tindify Screenshot 4" />
+            </article>
+
+            <article
+               class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+               <div style="display: flex; justify-content: center;">
+                  <img src="./dating5.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./dating6.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./dating7.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+            
                </div>
-            </div>
-         </div>
-         <div class="carousel-controls">
-            <button class="carousel-btn prev" onclick="moveCarousel(-1)">
-               &#10094;
-            </button>
-            <button class="carousel-btn next" onclick="moveCarousel(1)">
-               &#10095;
-            </button>
-         </div>
+               <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                  <div>
+                     <p class="font-semibold text-stone-800 text-sm">Video Calling</p>
+                  </div>
+               </div>
+            </article>
+
+
+            <article
+               class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+               <div style="display: flex; justify-content: center;">
+                  <img src="./home1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./home2.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  <img src="./dating1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+            
+               </div>
+               <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                  <div>
+                     <p class="font-semibold text-stone-800 text-sm">Home Page</p>
+                  </div>
+               </div>
+            </article>
+
+
+         </main>
+         <!-- Controls -->
+         <button id="prevButton" title="Previous testimonial"
+            class="absolute top-1/2 left-[-16px] sm:left-[-24px] md:left-[-30px] transform -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-md hover:bg-white focus:bg-white flex items-center justify-center text-stone-500 hover:text-stone-700 focus:text-stone-700 focus:outline-none transition-all duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+               stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+         </button>
+         <button id="nextButton" title="Next testimonial"
+            class="absolute top-1/2 right-[-16px] sm:right-[-24px] md:right-[-30px] transform -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-md hover:bg-white focus:bg-white flex items-center justify-center text-stone-500 hover:text-stone-700 focus:text-stone-700 focus:outline-none transition-all duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+               stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+         </button>
       </div>
+
       <p class="product-description">
          💘 <strong>Tindify</strong> – A futuristic dating app powered by AI,
          redefining how connections are made. Modern UI meets meaningful
@@ -3026,9 +3122,85 @@
             });
          });
       });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderContainer = document.getElementById('slider-container');
+  const slides = Array.from(sliderContainer.querySelectorAll('.slide'));
+  const numSlides = slides.length;
+  let currentActiveIndex = 0;
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
+  function updateSlideStates() {
+    if (numSlides === 0) return;
+    for (let i = 0; i < numSlides; i++) {
+      const slide = slides[i];
+      let status = 'hidden';
+      let diff = i - currentActiveIndex;
+      if (diff > numSlides / 2) {
+        diff -= numSlides;
+      } else if (diff < -numSlides / 2) {
+        diff += numSlides;
+      }
+      if (diff === 0) {
+        status = 'active';
+      } else if (numSlides > 1 && diff === 1) {
+        status = 'next';
+      } else if (numSlides > 2 && diff === -1) {
+        status = 'prev';
+      } else if (numSlides > 3 && diff === 2) {
+        status = 'background-next';
+      } else if (numSlides > 4 && diff === -2) {
+        status = 'background-prev';
+      }
+      if (numSlides === 2 && diff === -1) {
+        status = 'next';
+      }
+      if (numSlides === 3 && diff === -2) { // For N=3, diff=-2 is same as diff=1 ('next')
+        // This case is diff=2, which normalizes to diff=-1 for N=3, so 'prev'
+        // The diff calc already handles this.
+      }
+      if (numSlides === 4 && diff === -2) { // For N=4, diff=-2 is same as diff=2 ('background-next')
+        status = 'background-next';
+      }
+      slide.dataset.status = status;
+      slide.classList.remove('shadow-xl', 'shadow-lg', 'shadow-md');
+      if (status === 'active') slide.classList.add('shadow-xl');
+      else if (status === 'next' || status === 'prev') slide.classList.add('shadow-lg');
+      else if (status === 'background-next' || status === 'background-prev') slide.classList.add('shadow-md');
+    }
+  }
+  if (numSlides > 0) {
+    updateSlideStates();
+  } else {
+    if (sliderContainer) sliderContainer.innerHTML = '<p class="text-stone-500 text-center p-10 absolute inset-0 flex items-center justify-center">No testimonials available.</p>';
+  }
+  if (numSlides <= 1) {
+    if (prevButton) prevButton.style.display = 'none';
+    if (nextButton) nextButton.style.display = 'none';
+  } else {
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        currentActiveIndex = (currentActiveIndex - 1 + numSlides) % numSlides;
+        updateSlideStates();
+      });
+    }
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        currentActiveIndex = (currentActiveIndex + 1) % numSlides;
+        updateSlideStates();
+      });
+    }
+  }
+});
+
+
+      
    </script>
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 
 </html>
