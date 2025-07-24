@@ -1,2594 +1,738 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lufonic - Tech Company</title>
-    <link rel="icon" type="image/png" href="./lufonic.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        .logo img {
-            height: 50px;
-            object-fit: contain;
-        }
-
-        .nav-curve {
-            position: relative;
-            width: 60px;
-            height: 20px;
-            overflow: visible;
-        }
-
-        .nav-curve::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            width: 100px;
-            height: 40px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.7;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.3);
-                opacity: 0.4;
-            }
-        }
-
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            position: sticky;
-            top: 0;
-        }
-
-        .desktop-nav a {
-            margin: 0 1rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .desktop-nav a:hover {
-            color: var(--primary-color);
-        }
-
-
-
-        .typing {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        section {
-            padding: 4rem 2rem;
-            border-radius: 2rem;
-            margin: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-        }
-
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        [data-animate].show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 1rem;
-        }
-
-        .tab {
-            padding: 0.7rem 1.5rem;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .tab:hover {
-            background: #ff338f;
-        }
-
-        .tab-content {
-            display: none;
-            line-height: 1.6;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.6s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1rem;
-            padding: 2rem 0;
-        }
-
-        .carousel img {
-            width: 300px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 1rem;
-            scroll-snap-align: center;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-        }
-
-        .carousel img:hover {
-            transform: scale(1.05);
-        }
-
-
-
-        .modern-carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1rem;
-        }
-
-        .modern-carousel {
-            overflow: hidden;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            transition: transform 0.6s ease-in-out;
-        }
-
-        .carousel-slide {
-            flex: 0 0 30%;
-            opacity: 0.6;
-            transition: transform 0.5s, opacity 0.5s;
-            transform: scale(0.9);
-        }
-
-        .carousel-slide.center {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            pointer-events: none;
-        }
-
-        .carousel-btn {
-            background: rgba(0, 0, 0, 0.4);
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 50%;
-            backdrop-filter: blur(4px);
-            transition: background 0.3s;
-            pointer-events: all;
-        }
-
-        .carousel-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .carousel-slide {
-                flex: 0 0 80%;
-            }
-        }
-
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-            flex-direction: column;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .hero-subtext {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            color: #ccc;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-highlights {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            padding: 0;
-        }
-
-        .hero-highlights li {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 0.8rem 1.2rem;
-            border-radius: 50px;
-            color: white;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            margin-top: 2rem;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 40px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .hero-cta:hover {
-            background: #e640a5;
-        }
-
-
-
-
-        :root {
-            --primary-color: #ff4db8;
-            --secondary-color: #1a1a1a;
-            --accent-color: #61dafb;
-            --bg-dark: #0d0d0d;
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-dark);
-            color: white;
-            overflow-x: hidden;
-        }
-
-        #tsparticles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
-        }
-
-        header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        nav a {
-            margin: 0.5rem 1rem;
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 5rem 2rem;
-            background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            /*             background: linear-gradient(to right, #ff4db8, #ff9a9e); */
-            background: linear-gradient(to right, white, white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 2rem;
-        }
-
-        .avatars {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            padding: 2rem 1rem;
-        }
-
-        model-viewer {
-            width: 180px;
-            height: 240px;
-            border-radius: 1rem;
-            background: #000;
-        }
-
-        .carousel {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            padding: 2rem;
-            margin-top: 1rem;
-        }
-
-        .carousel img {
-            width: 100%;
-            border-radius: 1rem;
-            object-fit: cover;
-            height: 100%;
-            aspect-ratio: 3/4;
-        }
-
-
-
-        .job-card,
-        .testimonial,
-        .blog-post,
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .apply-btn,
-        .submit-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .apply-btn:hover,
-        .submit-btn:hover {
-            background: #e13ca1;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .popup-content {
-            background: #1f1f1f;
-            padding: 2rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 500px;
-        }
-
-        .popup-content input,
-        .popup-content textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border-radius: 0.5rem;
-            border: none;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .close-btn {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        .about-section,
-        .features-section {
-            padding: 4rem 1.5rem;
-            background: #111;
-            color: #ddd;
-        }
-
-        .about-section h2,
-        .features-section h2 {
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
-            font-size: 1.7rem;
-            margin-bottom: 2rem;
-            color: #ccc;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .feature-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-
-        .feature-box i {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            background: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-                margin: 0.3rem 0.6rem;
-            }
-
-            /* .about-content {
-                flex-direction: column;
-                text-align: center;
-            } */
-
-            /* .about-text {
-                text-align: center;
-            } */
-        }
-
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .highlight {
-            color: #ff4db8;
-        }
-
-        .meta {
-            list-style: none;
-            padding-left: 0;
-            margin: 1rem 0;
-        }
-
-        .meta li {
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
-
-        .fancy-list {
-            padding-left: 1.2rem;
-        }
-
-        .fancy-list li::marker {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .job-card small {
-            font-weight: normal;
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-
-
-
-
-
-
-        .jd {
-            display: none;
-        }
-
-        .jd.active {
-            display: block;
-        }
-
-        #applyPopup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .popup-content {
-            background: #1e1e1e;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            color: white;
-        }
-
-        .close-btn {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-
-        .highlight {
-            color: #ff4db8;
-        }
-
-        .meta {
-            list-style: none;
-            padding-left: 0;
-            margin: 1rem 0;
-        }
-
-        .meta li {
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
-
-        .fancy-list {
-            padding-left: 1.2rem;
-        }
-
-        .fancy-list li::marker {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .job-card small {
-            font-weight: normal;
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-
-        .jd {
-            display: none;
-        }
-
-        .jd.active {
-            display: block;
-        }
-
-        #applyPopup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .popup-content {
-            background: #1e1e1e;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            color: white;
-        }
-
-        .close-btn {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-
-        .highlight {
-            color: #ff4db8;
-        }
-
-        .meta,
-        .fancy-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 1rem 0;
-        }
-
-        .fancy-list li::marker {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .job-card small {
-            font-weight: normal;
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-
-        .jd {
-            display: none;
-        }
-
-        .jd.active {
-            display: block;
-        }
-
-        #applyPopup,
-        #mapPopup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .popup-content {
-            background: #1e1e1e;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            color: white;
-        }
-
-        .close-btn {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .job-card.active {
-            border: 2px solid var(--primary-color);
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-
-
-
-
-
-
-        .section-title {
-            text-align: center;
-            font-size: 1.7rem;
-            color: #fff;
-            margin-bottom: 2rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .modern-carousel-container {
-            position: relative;
-            overflow: hidden;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .modern-carousel {
-            overflow: hidden;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.6s ease-in-out;
-            will-change: transform;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            flex: 0 0 100%;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .carousel-slide img {
-            border-radius: 1rem;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            transition: transform 0.4s ease;
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-        }
-
-        .carousel-slide img:hover {
-            transform: scale(1.03);
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 1rem;
-        }
-
-        .carousel-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .carousel-btn:hover {
-            background: #ff4db8;
-        }
-
-        .product-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 1rem auto;
-            font-size: 1.1rem;
-            color: #ccc;
-        }
-
-        .animate-fade {
-            animation: fadeInUp 1s ease-in-out forwards;
-        }
-
-        .animate-slide {
-            animation: slideUp 1s ease-in-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-
-
-
-        .section-title {
-            text-align: center;
-            font-size: 1.7rem;
-            color: #fff;
-            margin-bottom: 2rem;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .modern-carousel-container {
-            position: relative;
-            overflow: hidden;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-            background: linear-gradient(145deg, #111, #1a1a1a);
-            border-radius: 2rem;
-            box-shadow: 0 0 40px rgba(255, 77, 184, 0.1);
-        }
-
-        .modern-carousel {
-            overflow: hidden;
-            border-radius: 1rem;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.7s ease-in-out;
-            will-change: transform;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            flex: 0 0 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
-            background: #fff;
-        }
-
-        .carousel-slide img:hover {
-            transform: scale(1.05);
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 1rem;
-        }
-
-        .carousel-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: #fff;
-            font-size: 2.5rem;
-            cursor: pointer;
-            padding: 0.3rem 0.9rem;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .carousel-btn:hover {
-            background: #ff4db8;
-        }
-
-        .product-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 2rem auto 0;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #ddd;
-        }
-
-        .animate-fade {
-            animation: fadeInUp 1s ease-in-out forwards;
-        }
-
-        .animate-slide {
-            animation: slideUp 1s ease-in-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-
-
-        .features-section {
-            background: linear-gradient(to right, #0d0d0d, #1c1c1c);
-            padding: 4rem 2rem;
-            color: #fff;
-            text-align: center;
-        }
-
-        .features-title {
-            font-size: 2.6rem;
-            margin-bottom: 3rem;
-            font-family: 'Orbitron', sans-serif;
-            color: #ff4db8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .feature-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem 1rem;
-            border-radius: 1rem;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 30px rgba(255, 77, 184, 0.3);
-        }
-
-        .feature-box i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #61dafb;
-        }
-
-        .feature-box h4 {
-            margin: 0.5rem 0 1rem;
-            font-size: 1.3rem;
-            color: #fff;
-        }
-
-        .feature-box p {
-            font-size: 0.95rem;
-            color: #ccc;
-        }
-
-        .animate-fade {
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-
-
-
-        .features-section {
-            background: linear-gradient(to right, #0d0d0d, #1c1c1c);
-            padding: 4rem 2rem;
-            color: #fff;
-            text-align: center;
-        }
-
-        .features-title {
-            font-size: 2.6rem;
-            margin-bottom: 3rem;
-            font-family: 'Orbitron', sans-serif;
-            color: #ff4db8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .feature-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem 1rem;
-            border-radius: 1rem;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 30px rgba(255, 77, 184, 0.3);
-        }
-
-        .feature-box i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #61dafb;
-        }
-
-        .feature-box h4 {
-            margin: 0.5rem 0 1rem;
-            font-size: 1.3rem;
-            color: #fff;
-        }
-
-        .feature-box p {
-            font-size: 0.95rem;
-            color: #ccc;
-        }
-
-        .about-gradient-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-gradient-title {
-            font-size: 2.8rem;
-            font-family: 'Orbitron', sans-serif;
-            color: #ff4db8;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .about-gradient-text {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: auto;
-            color: #ddd;
-            line-height: 1.7;
-            animation: fadeInUp 1.5s ease forwards;
-        }
-
-        .blur-circle {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 0;
-        }
-
-        .blur-circle-top {
-            top: -50px;
-            left: -50px;
-            background: radial-gradient(circle, rgba(255, 77, 184, 0.4), transparent);
-        }
-
-        .blur-circle-bottom {
-            bottom: -50px;
-            right: -50px;
-            background: radial-gradient(circle, rgba(155, 93, 229, 0.4), transparent);
-        }
-
-        /* .animate-fade {
-            animation: fadeInUp 1s ease forwards;
-        } */
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-
-        .about-section-theme {
-            padding: 5rem 2rem;
-            background: var(--bg-dark);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-heading {
-            font-size: 1.7rem;
-            font-family: 'Orbitron', sans-serif;
-            color: #ccc;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .section-subtext {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: auto;
-            color: #ccc;
-            line-height: 1.7;
-            animation: fadeInUp 1.5s ease forwards;
-        }
-
-        .glow-circle {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 0;
-        }
-
-        .top-left {
-            top: -50px;
-            left: -50px;
-            background: radial-gradient(circle, rgba(255, 77, 184, 0.3), transparent);
-        }
-
-        .bottom-right {
-            bottom: -50px;
-            right: -50px;
-            background: radial-gradient(circle, rgba(155, 93, 229, 0.3), transparent);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-
-
-
-        .site-footer {
-            background-color: #111;
-            /* Light background */
-            padding: 30px 0;
-            /* Adjust padding as needed */
-            color: #ccc;
-            /* Text color */
-        }
-
-
-        .site-footer li {
-
-            color: #ccc;
-            /* Text color */
-            color: var(--primary-color);
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-section {
-            flex: 1 1 250px;
-            /* Adjust section width as needed */
-            margin-bottom: 20px;
-            /* Space between sections */
-        }
-
-        .footer-section h4 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .footer-section h3 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-
-        .footer-section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
-
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #333;
-            color: var(--primary-color);
-        }
-
-        .footer-contact p {
-            margin-bottom: 5px;
-        }
-
-        .social-icons {
-            margin-top: 10px;
-        }
-
-
-        .footer-social a {
-            color: #ccc;
-            margin-right: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-social a:hover {
-            color: var(--primary-color);
-        }
-
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.85rem;
-            color: #888;
-        }
-
-        .specialized-tech-section {
-            padding: 5rem 2rem;
-            background: #0d0d0d;
-            text-align: center;
-            color: white;
-        }
-
-        .specialized-tech-section .section-heading {
-            font-size: 1.7rem;
-            margin-bottom: 2rem;
-            font-family: 'Orbitron', sans-serif;
-            color: #ccc;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .tech-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 77, 184, 0.2);
-        }
-
-        .tech-card i {
-            font-size: 2rem;
-            color: #61dafb;
-            margin-bottom: 1rem;
-        }
-
-        .tech-card h4 {
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 70px;
-            right: 0;
-            width: 100%;
-            z-index: 999;
-            padding: 1rem 1.5rem;
-            transform: translateX(100%);
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-
-        .mobile-menu.show {
-            display: flex;
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .mobile-tile {
-            background: rgba(255, 255, 255, 0.05);
-            margin: 0.5rem 0;
-            padding: 1rem;
-            border-radius: 1rem;
-            text-align: center;
-            font-size: 1.2rem;
-            transition: background 0.3s;
-        }
-
-        .mobile-tile:hover {
-            background: rgba(255, 77, 184, 0.1);
-        }
-
-
-
-
-
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 1rem 0;
-            animation: slideDown 0.4s ease forwards;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
-            backdrop-filter: blur(8px);
-        }
-
-        .mobile-menu.show {
-            display: flex;
-        }
-
-        .mobile-tile {
-            padding: 1rem 2rem;
-            margin: 0.3rem 1rem;
-            background: #f0f0f0;
-            color: #111;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-tile:hover {
-            background: #e6e6e6;
-        }
-
-        .mobile-tile a {
-            color: #111;
-            text-decoration: none;
-            display: block;
-        }
-
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0px);
-                opacity: 1;
-            }
-        }
-
-
-
-
-
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: white;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 1rem 0;
-            animation: slideDown 0.4s ease forwards;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
-            backdrop-filter: blur(8px);
-        }
-
-        .mobile-menu.show {
-            display: flex;
-        }
-
-        .mobile-tile {
-            padding: 1rem 2rem;
-            margin: 0.3rem 1rem;
-            background: #f0f0f0;
-            color: #111;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-tile a {
-            color: #111;
-            text-decoration: none;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0px);
-                opacity: 1;
-            }
-        }
-
-
-        .custom-mobile-menu {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background: #1a1a1a;
-            z-index: 999;
-            display: none;
-            flex-direction: column;
-            padding: 1.5rem 1rem;
-            animation: slideIn 0.3s ease-out;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 77, 184, 0.3);
-        }
-
-        .custom-mobile-menu.show {
-            display: flex;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: white;
-            background: transparent;
-            padding: 1rem 1.5rem;
-            margin: 0.4rem 0;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .menu-item i {
-            color: #ff4db8;
-            font-size: 1.1rem;
-        }
-
-        .menu-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: scale(1.01);
-        }
-
-        .menu-item.active {
-            background: #ff4db8;
-            color: #111;
-        }
-
-        .menu-item.active i {
-            color: #111;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hamburger {
-            position: fixed;
-            top: 15px;
-            right: 20px;
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
-        }
-
-
-
-
-
-        .about-section {
-            padding: 5rem 1.5rem;
-            background: #0d0d0d;
-            color: #eee;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .about-section h2 {
-            text-align: center;
-            /* font-size: 2.5rem; */
-            margin-bottom: 3rem;
-            color: #ccc;
-            /* or var(--primary-color) */
-        }
-
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-image img {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            border-radius: 1.2rem;
-            box-shadow: 0 0 25px rgba(255, 77, 184, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .about-image img:hover {
-            transform: scale(1.05);
-        }
-
-        .about-text {
-            flex: 1 1 400px;
-            max-width: 650px;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: left;
-        }
-
-        .about-text strong {
-            color: #fff;
-            font-weight: 600;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .about-text {
-                font-size: 1rem;
-            }
-
-            .about-section h2 {
-                font-size: 1.7rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-text {
-                text-align: center;
-                padding: 0 1rem;
-            }
-
-            .about-image img {
-                max-width: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .about-section {
-                padding: 3rem 1rem;
-            }
-
-            .about-section h2 {
-                font-size: 1.7rem;
-            }
-
-            .about-text {
-                font-size: 0.95rem;
-            }
-
-            .about-image img {
-                max-width: 200px;
-            }
-        }
-
-
-        /* # Career Styling */
-
-        /* Career Container Layout */
-        .career-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 2rem;
-            justify-content: space-between;
-        }
-
-        /* Left Column: Job Listings */
-        .job-listings {
-            flex: 1 1 320px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        /* Job Card Style */
-        .job-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.2rem;
-            border-radius: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 12px rgba(255, 77, 184, 0.1);
-        }
-
-        .job-card:hover {
-            transform: scale(1.01);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .job-card.active {
-            border: 2px solid var(--primary-color);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .job-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-            color: #fff;
-        }
-
-        .job-card p {
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-            color: #ccc;
-        }
-
-        .job-card .badge {
-            background: #ff4db8;
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #000;
-            display: inline-block;
-        }
-
-        /* Button Container in Card */
-        .actions {
-            margin-top: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .actions button {
-            border: none;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.7rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .actions button:hover {
-            background-color: #ff3399;
-        }
-
-        /* Right Column: Job Description */
-        .job-description {
-            flex: 2 1 400px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 2rem;
-            color: #eee;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Job Metadata List */
-        .job-description .meta {
-            list-style: none;
-            padding-left: 0;
-            margin: 1rem 0;
-        }
-
-        .job-description .meta li {
-            margin-bottom: 0.4rem;
-            font-size: 0.95rem;
-        }
-
-        .fancy-list {
-            padding-left: 1.2rem;
-            margin: 1rem 0;
-        }
-
-        .fancy-list li {
-            list-style: disc;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Popup Styles */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .popup-content {
-            background: #1e1e1e;
-            padding: 2rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 500px;
-            color: #fff;
-            position: relative;
-        }
-
-        .popup-content h3 {
-            margin-bottom: 1rem;
-        }
-
-        .popup-content input,
-        .popup-content textarea {
-            width: 100%;
-            margin-bottom: 1rem;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 0.5rem;
-            background: #2c2c2c;
-            color: #fff;
-        }
-
-        .popup-content button.btn-submit {
-            background-color: var(--primary-color);
-            border: none;
-            padding: 0.7rem 1.2rem;
-            color: #fff;
-            border-radius: 0.6rem;
-            cursor: pointer;
-        }
-
-        .popup-content button.btn-submit:hover {
-            background-color: #ff3399;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.4rem;
-            cursor: pointer;
-            color: #ccc;
-        }
-
-        /* Map Popup */
-        #mapPopup .popup-content {
-            max-width: 600px;
-        }
-
-        /* Responsive Behavior */
-        @media (max-width: 1024px) {
-            .career-container {
-                flex-direction: column;
-            }
-
-            .job-listings,
-            .job-description {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-
-            .job-card {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .popup-content {
-                padding: 1.2rem;
-            }
-
-            .actions {
-                flex-direction: column;
-                gap: 0.7rem;
-            }
-
-            .actions button {
-                width: 100%;
-                text-align: center;
-            }
-
-            .job-description {
-                padding: 1.2rem;
-                font-size: 0.95rem;
-            }
-
-            .job-card h3 {
-                font-size: 1rem;
-            }
-
-            .job-card p {
-                font-size: 0.9rem;
-            }
-        }
-
-        .background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.7;
-            /* Adjust to your preference */
-            transform: scale(1.1)
-        }
-
-        @media (max-width: 767px) {
-            .background-video {
-                display: none;
-            }
-        }
-    </style>
-
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Lufonic is a futuristic tech company building AI-powered software, scalable platforms, and stunning mobile apps." />
-    <meta name="keywords" content="Tech, AI, Software, Web Development, Lufonic, Apps, Platforms" />
-    <meta name="author" content="Lufonic Team" />
-    <title>Lufonic - Futuristic Tech Company</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Orbitron:wght@600&display=swap"
-        rel="stylesheet">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script> -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
-    <body>
-        <header class="main-header">
-            <div class="logo">
-                <img src="./lufonic-removebg-preview.png" alt="Lufonic Logo" />
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lufonic - Tech Company</title>
+      <link rel="icon" type="image/png" href="./logo2.png" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+      <link rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" 
+      />
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel='stylesheet' href='./style.css'>
+      <script src="https://kit.fontawesome.com/c2b7333601.js" crossorigin="anonymous"></script>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description"
+         content="Lufonic is a futuristic tech company building AI-powered software, scalable platforms, and stunning mobile apps." />
+      <meta name="keywords" content="Tech, AI, Software, Web Development, Lufonic, Apps, Platforms" />
+      <meta name="author" content="Lufonic Team" />
+      <title>Lufonic - Futuristic Tech Company</title>
+      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Orbitron:wght@600&display=swap"
+         rel="stylesheet" />
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+      <script src="https://kit.fontawesome.com/c2b7333601.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="./assets/boxicons-2.1.4/css/boxicons.min.css" />
+   </head>
+
+   <body>
+      <header class="main-header">
+         <div class="logo">
+            <img src="./assets/images/logo/lufonic-removebg-preview.png" alt="Lufonic Logo" />
+         </div>
+         <nav class="desktop-nav">
+            <a href="#home">Home</a>
+            <a href="#career">Career</a>
+            <a href="#products">Products</a>
+            <a href="#features">Features</a>
+            <a href="#specialized-tech">Technologies</a>
+            <a href="#about">About</a>
+         </nav>
+         <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+         </div>
+      </header>
+
+      <div class="custom-mobile-menu" id="mobileMenu">
+         <a href="#about" class="menu-item" data-section="about"><i class="fas fa-info-circle"></i> About</a>
+         <a href="#services" class="menu-item" data-section="services"><i class="fas fa-cogs"></i> Services</a>
+         <a href="#career" class="menu-item" data-section="career"><i class="fas fa-user-tie"></i> Career</a>
+         <a href="#products" class="menu-item" data-section="products"><i class="fas fa-box-open"></i> Products</a>
+         <a href="#testimonials" class="menu-item" data-section="testimonials"><i class="fas fa-star"></i> Testimonials</a>
+         <a href="#contact" class="menu-item" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+
+      <section class="hero" id="home">
+         <video autoplay muted loop playsinline class="background-video">
+            <source src="./assets/videos/background-videos/tech.mp4" type="video/mp4" />
+         </video>
+         <h1 data-animate style="
+                  font-weight: 900;
+                  font-size: 3rem;
+                  font-family: &quot;Courier New&quot;, Courier, monospace;
+                  color: white;
+               ">
+            We build <span class="typing" id="type-text"></span>
+         </h1>
+
+         <p class="hero-subtext">
+            At <strong>Lufonic</strong>, we merge design and technology to craft
+            intelligent, intuitive, and impactful digital solutions.
+         </p>
+
+         <ul class="hero-highlights">
+            <li><span>✨</span> AI-powered Platforms</li>
+            <li><span>⚙️</span> Scalable Infrastructure</li>
+            <li><span>🌟</span> Design-Driven Interfaces</li>
+            <li><span>🚀</span> Future-Ready Solutions</li>
+         </ul>
+      </section>
+
+      <section id="career" data-animate style="background: linear-gradient(to right, #0d0d0d, #1c1c1c);">
+         <h2 class="section-title">
+            🚀 Career at <span class="highlight">Lufonic</span>
+         </h2>
+         <div class="career-container">
+            <div class="job-listings">
+               <div class="job-card animate-card" data-job="job1">
+                  <h3>
+                     Software Engineer / Specialist<br /><small>(DataStax & Cassandra)</small>
+                  </h3>
+                  <p><i>📍 India - Delhi (Lufonic Site)</i></p>
+                  <span class="badge">Hybrid</span>
+                  <div class="actions">
+                     <button class="btn-apply" onclick="openApplyPopup()">
+                        <i class="fa-solid fa-paper-plane"></i> Apply
+                     </button>
+                     <button class="btn-map" onclick="showOnMap('Delhi, India')">
+                        <i class="fa-solid fa-map-location-dot"></i> See on Map
+                     </button>
+                  </div>
+               </div>
+               <div class="job-card animate-card" data-job="job2">
+                  <h3>Software Engineer</h3>
+                  <p><i>📍 Pune, India</i></p>
+                  <span class="badge">Hybrid</span>
+                  <div class="actions">
+                     <button class="btn-apply" onclick="openApplyPopup()">
+                        <i class="fa-solid fa-paper-plane"></i> Apply
+                     </button>
+                     <button class="btn-map" onclick="showOnMap('Pune, India')">
+                        <i class="fa-solid fa-map-location-dot"></i> See on Map
+                     </button>
+                  </div>
+               </div>
             </div>
-            <nav class="desktop-nav">
-                <a href="#home">Home</a>
-                <a href="#career">Career</a>
-                <a href="#products">Products</a>
-                <a href="#features">Features</a>
-                <a href="#specialized-tech">Technologies</a>
-                <a href="#about">About</a>
-            </nav>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
+            <div class="job-description animate-fade">
+               <div id="job1" class="jd">
+                  <h3>Software Engineer / Specialist (DataStax & Cassandra)</h3>
+                  <ul class="meta">
+                     <li><strong>ID:</strong> 200628</li>
+                     <li><strong>Required Travel:</strong> Minimal</li>
+                     <li><strong>Managerial:</strong> No</li>
+                     <li>
+                        <strong>Location:</strong> India- Delhi (Lufonic Site)
+                     </li>
+                  </ul>
+                  <h4>Who are we?</h4>
+                  <p>
+                     Lufonic helps those who build the future to make it
+                     amazing...
+                  </p>
+                  <h4>Key Responsibilities:</h4>
+                  <ul class="fancy-list">
+                     <li>
+                        Install, configure, and maintain DataStax Enterprise...
+                     </li>
+                  </ul>
+               </div>
+               <div id="job2" class="jd">
+                  <h3>Software Engineer</h3>
+                  <ul class="meta">
+                     <li><strong>ID:</strong> 200629</li>
+                     <li><strong>Location:</strong> Pune, India</li>
+                  </ul>
+                  <p>
+                     <strong>Description:</strong> Design and develop
+                     cutting-edge web applications...
+                  </p>
+               </div>
             </div>
-        </header>
-        <div class="hamburger" id="hamburgerBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+         </div>
 
-        <div class="custom-mobile-menu" id="mobileMenu">
-            <a href="#about" class="menu-item" data-section="about"><i class="fas fa-info-circle"></i> About</a>
-            <a href="#services" class="menu-item" data-section="services"><i class="fas fa-cogs"></i> Services</a>
-            <a href="#career" class="menu-item" data-section="career"><i class="fas fa-user-tie"></i> Career</a>
-            <a href="#products" class="menu-item" data-section="products"><i class="fas fa-box-open"></i> Products</a>
-            <a href="#testimonials" class="menu-item" data-section="testimonials"><i class="fas fa-star"></i>
-                Testimonials</a>
-            <a href="#contact" class="menu-item" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
-        </div>
+         <div class="popup" id="applyPopup">
+            <div class="popup-content animate-popup">
+               <span class="close-btn" onclick="closeApplyPopup()">&times;</span>
+               <h3>Apply for this Job</h3>
+               <form>
+                  <input type="text" placeholder="Full Name" required />
+                  <input type="email" placeholder="Email Address" required />
+                  <input type="tel" placeholder="Phone Number" required />
+                  <textarea placeholder="Cover Letter (Optional)"></textarea>
+                  <input type="file" accept=".pdf,.doc,.docx" required />
+                  <button type="submit" class="btn-submit">
+                     <i class="fa-solid fa-paper-plane"></i> Submit Application
+                  </button>
+               </form>
+            </div>
+         </div>
 
-        <section class="hero" id="home">
-            <video autoplay muted loop playsinline class="background-video">
-                <source src="tech.mp4" type="video/mp4" />
-            </video>
-            <h1 data-animate
-                style="font-weight: 900; font-size: 3rem; font-family: 'Courier New', Courier, monospace; color: white">
-                We build <span class="typing" id="type-text"></span>
-            </h1>
+         <div id="mapPopup" class="popup">
+            <div class="popup-content">
+               <span class="close-btn" onclick="closeMapPopup()">&times;</span>
+               <h3>Job Location</h3>
+               <div id="map" style="width: 100%; height: 300px"></div>
+               <p id="distanceInfo"></p>
+            </div>
+         </div>
+      </section>
 
-            <p class="hero-subtext">
-                At <strong>Lufonic</strong>, we merge design and technology to craft intelligent, intuitive, and impactful
-                digital
-                solutions.
+      <section id="products" data-animate style="background: linear-gradient(to left, #0d0d0d, #1c1c1c);">
+         <h2 class="section-title animate-fade">🚀 Our Products</h2>
+         <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
+            <main id="slider-container" class="relative w-full h-[400px] sm:h-[380px] md:h-[360px] [perspective:1200px]">
+               <article
+                  class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+                  <div style="display: flex; justify-content: center;">
+                     <img src="./assets/images/product/dating/home1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/home2.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  </div>
+                  <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                     <div>
+                        <p class="font-semibold text-stone-800 text-sm">Home Page</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article
+                  class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+                  <div style="display: flex; justify-content: center;">
+                     <img src="./assets/images/product/dating/dating2.json.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating3.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating4.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+               
+                  </div>
+                  <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                     <div>
+                        <p class="font-semibold text-stone-800 text-sm">Explore Page</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article
+                  class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+                  <div style="display: flex; justify-content: center;">
+                     <img src="./assets/images/product/dating/home1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/home2.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                  </div>
+                  <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                     <div>
+                        <p class="font-semibold text-stone-800 text-sm">Home Page</p>
+                     </div>
+                  </div>
+               </article>
+               
+               <article
+                  class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+                  <div style="display: flex; justify-content: center;">
+                     <img src="./assets/images/product/dating/dating5.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating6.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating7.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+               
+                  </div>
+                  <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                     <div>
+                        <p class="font-semibold text-stone-800 text-sm">Video Calling</p>
+                     </div>
+                  </div>
+               </article>
+
+
+               <article
+                  class="slide absolute inset-0 flex flex-col justify-between p-6 md:p-8 bg-white rounded-2xl border border-stone-200">
+                  <div style="display: flex; justify-content: center;">
+                     <img src="./assets/images/product/dating/home1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/home2.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+                     <img src="./assets/images/product/dating/dating1.png" alt="User Namesss" class="w-100 h-30 mr-3 shrink-0" style="height:15rem">
+               
+                  </div>
+                  <div class="flex items-center mt-6 pt-4 border-t border-stone-200">
+                     <div>
+                        <p class="font-semibold text-stone-800 text-sm">Home Page</p>
+                     </div>
+                  </div>
+               </article>
+
+
+            </main>
+            <!-- Controls -->
+            <button id="prevButton" title="Previous testimonial"
+               class="absolute top-1/2 left-[-16px] sm:left-[-24px] md:left-[-30px] transform -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-md hover:bg-white focus:bg-white flex items-center justify-center text-stone-500 hover:text-stone-700 focus:text-stone-700 focus:outline-none transition-all duration-200">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                  stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+               </svg>
+            </button>
+            <button id="nextButton" title="Next testimonial"
+               class="absolute top-1/2 right-[-16px] sm:right-[-24px] md:right-[-30px] transform -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-md hover:bg-white focus:bg-white flex items-center justify-center text-stone-500 hover:text-stone-700 focus:text-stone-700 focus:outline-none transition-all duration-200">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                  stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+               </svg>
+            </button>
+         </div>
+
+         <p class="product-description">
+            💘 <strong>Tindify</strong> – A futuristic dating app powered by AI,
+            redefining how connections are made. Modern UI meets meaningful
+            swipes.
+         </p>
+      </section>
+
+      <section class="about-section" id="about" style="background: linear-gradient(to right, #0d0d0d, #1c1c1c);">
+         <h2>Who We Are</h2>
+         <div class="about-content">
+            <div class="about-image">
+               <img src="./assets/images/logo/lufonic-removebg-preview.png" alt="About Lufonic" />
+            </div>
+            <div class="about-text">
+               <p>
+                  <strong>Lufonic</strong> is not just a tech company, we're a
+                  vision factory. We design AI-driven platforms, beautiful
+                  mobile apps, and scalable digital products with futuristic
+                  flair. Our mission is to transform dreams into intelligent,
+                  user-friendly realities.
+               </p>
+               <p>
+                  With a team of passionate developers, designers, and
+                  visionaries, we deliver performance, scalability, and
+                  unforgettable digital experiences.
+               </p>
+            </div>
+         </div>
+      </section>
+
+      <section class="specialized-tech-section" id="specialized-tech"
+         style="background: linear-gradient(to left, #0d0d0d, #1c1c1c);">
+         <h2 class="section-heading">🧠 Specialized Technologies</h2>
+         <div class="tech-grid">
+            <div class="tech-card">
+               <i class="fab fa-react"></i>
+               <h4>React & Next.js</h4>
+               <p>
+                  High-performance UI libraries powering dynamic user
+                  experiences.
+               </p>
+            </div>
+            <div class="tech-card">
+               <i class="fab fa-node"></i>
+               <h4>Node.js & Express</h4>
+               <p>
+                  Scalable backend APIs built with efficiency and modularity.
+               </p>
+            </div>
+            <div class="tech-card">
+               <i class="fab fa-java"></i>
+               <h4>Spring Boot</h4>
+               <p>
+                  Robust enterprise-grade backend framework for microservices.
+               </p>
+            </div>
+            <div class="tech-card">
+               <i class="fas fa-database"></i>
+               <h4>MongoDB & PostgreSQL</h4>
+               <p>
+                  NoSQL and relational databases optimized for diverse use
+                  cases.
+               </p>
+            </div>
+            <div class="tech-card">
+               <i class="fab fa-aws"></i>
+               <h4>AWS & GCP</h4>
+               <p>
+                  Cloud platforms leveraged for scalable, secure infrastructure.
+               </p>
+            </div>
+            <div class="tech-card">
+               <i class="fas fa-brain"></i>
+               <h4>AI & ML Models</h4>
+               <p>
+                  Custom-trained models to drive personalization and automation.
+               </p>
+            </div>
+         </div>
+      </section>
+
+      <section class="features-section" id="features" style="background: linear-gradient(to right, #0d0d0d, #1c1c1c);">
+         <h2 class="features-title animate-fade">🌟 Why Choose Lufonic?</h2>
+         <div class="features-grid">
+            <div class="feature-box animate-fade">
+               <i class="fas fa-robot"></i>
+               <h4>AI-First Solutions</h4>
+               <p>
+                  We integrate artificial intelligence at every step to
+                  future-proof your business.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-laptop-code"></i>
+               <h4>Modern Tech Stack</h4>
+               <p>
+                  From React to Spring Boot, we use only the most performant
+                  technologies.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-layer-group"></i>
+               <h4>Scalable Architecture</h4>
+               <p>
+                  Built for growth, our platforms scale seamlessly with your
+                  user base.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-palette"></i>
+               <h4>Futuristic Design</h4>
+               <p>
+                  Visual storytelling through 3D avatars, dynamic layouts, and
+                  stunning UI.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-cloud"></i>
+               <h4>Cloud-Native Approach</h4>
+               <p>
+                  Harnessing the power of AWS, GCP, and Azure for robust
+                  deployments.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-bolt"></i>
+               <h4>Lightning Performance</h4>
+               <p>
+                  Our code is optimized for speed, delivering blazing-fast user
+                  experiences.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-shield-alt"></i>
+               <h4>Enterprise-Grade Security</h4>
+               <p>
+                  Security-first architecture protects your data and ensures
+                  compliance.
+               </p>
+            </div>
+            <div class="feature-box animate-fade">
+               <i class="fas fa-users"></i>
+               <h4>User-Centric UX</h4>
+               <p>
+                  Every pixel is designed with empathy, ensuring delightful user
+                  journeys.
+               </p>
+            </div>
+         </div>
+      </section>
+
+      <section id="about" class="about-section-theme" style="background: linear-gradient(to left, #0d0d0d, #1c1c1c);">
+         <div class="glow-circle top-left"></div>
+         <div class="glow-circle bottom-right"></div>
+         <h2 class="section-heading">About Us</h2>
+         <p class="section-subtext">
+            At <strong style="color: #ff4db8">Lufonic</strong>, we redefine
+            innovation. We are a futuristic tech company delivering
+            <span style="color: #61dafb; font-weight: 600">AI-driven</span>,
+            <span style="color: #9b5de5; font-weight: 600">scalable platforms</span>
+            and intelligent software solutions. With creative minds and
+            cutting-edge tech, we architect experiences that shape the future.
+         </p>
+      </section>
+
+      <section id="teams" class="teams"
+         style="background: linear-gradient(to right, #0d0d0d, #1c1c1c); color: white; padding: 4rem 2rem; font-family: 'Poppins', sans-serif;">
+         <h3 style="text-align: center; font-size: 1.5rem; color: #bbb;">We are there for you</h3>
+         <h2 style="text-align: center; font-size: 2.5rem; margin-top: 0.5rem;">
+            Meet Our <span style="color: #00f2fe;">Professional Team</span>
+         </h2>
+         <p style="text-align: center; color: #ccc; max-width: 700px; margin: 1rem auto;">
+            We help you see the world differently, discover opportunities you may never <br />
+            have imagined and achieve results that bridge what is with what can be.
+         </p>
+
+         <div class="wrapper"
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 3rem;">
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center; transform-style: preserve-3d;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden; backface-visibility: hidden;">
+                  <img src="./assets/images/team/unknown.png" alt="Siddharth Mishra" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Siddharth Mishra</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Senior Full Stack Developer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+
+               <div
+                  style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: white; transform: rotateY(180deg); border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: black;">
+                  <h3 style="margin: 0 0 10px 0;">Sid</h3>
+                  <p style="margin: 0 0 10px 0;">Backend</p>
+                  <p style="font-size: 14px;">Crafting user-centric experiences with empathy and innovation.</p>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/anurag.jpeg" alt="Anurag Rajput" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Anurag Rajput</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Senior Backend Developer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/shivam.jpeg" alt="Shivam" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Shivam</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Frontend Developer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/niraj.png" alt="Neeraj" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Neeraj</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Senior QA & PM</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown.png" alt="Suman Kumar Yadav" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Suman Kumar Yadav</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">DBA</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown5.png" alt="Anurag Rajput" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Jai Prakash</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Senior Frontend Developer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown2.png" alt="Mukesh Kumar" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Mukesh Kumar</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Dev Ops</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown5.png" alt="Anurag Rajput" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Mohit</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;"> - </h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown5.png" alt="Anurag Rajput" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Rahul Verma</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">-</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown2.png" alt="Saurabh Pandit" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Saurabh Pandit</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Full Stack Developer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown5.png" alt="Anurag Rajput" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Kishan Lal</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">Senior Backend Developer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="card"
+               style="background: #1c1c1e; border-radius: 20px; overflow: hidden; transition: transform 0.8s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.5); perspective: 1000px; text-align: center;"
+               onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+               <div class="card-header" style="overflow: hidden;">
+                  <img src="./assets/images/team/unknown2.png" alt="Anurag Rajput" style="width: 100%; height: 250px; object-fit: cover;">
+               </div>
+               <div class="card-body" style="padding: 1.2rem;">
+                  <h3 style="margin: 0; color: #00f2fe;">Sushan Gautam</h3>
+                  <h4 style="margin: 0.3rem 0 1rem; color: #aaa;">R & D Engineer</h4>
+                  <ul style="display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 0;">
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                     <li><a href="#" style="color: #00f2fe;"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <footer class="site-footer">
+         <div class="footer-glow"></div>
+         <div class="footer-container">
+            <div class="footer-section footer-about">
+               <h3>Lufonic</h3>
+               <p>
+                  Building futuristic, AI-powered software and digital
+                  experiences that scale.
+               </p>
+            </div>
+            <div class="footer-section footer-links">
+               <h4>Quick Links</h4>
+               <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#products">Products</a></li>
+                  <li><a href="#career">Careers</a></li>
+                  <li><a href="#testimonials">Testimonials</a></li>
+                  <li><a href="#contact">Contact</a></li>
+               </ul>
+            </div>
+            <div class="footer-section footer-contact">
+               <h4>Contact Us</h4>
+               <p><i class="fas fa-envelope"></i> contact@lufonic.com </p>
+               <p><i class="fas fa-phone-alt"></i> +91 6388282031</p>
+               <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+            </div>
+            <div class="footer-section footer-social">
+               <h4>Connect with Us</h4>
+               <div class="social-icons">
+                  <a href="https://www.linkedin.com/company/lufonic/" aria-label="LinkedIn">
+                     <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://www.instagram.com/lufonic/" aria-label="Instagram">
+                     <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://x.com/lufonic" aria-label="Twitter">
+                     <i class="fab fa-twitter"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="footer-bottom">
+            <p>
+               &copy; 2025 <strong>Lufonic</strong>. Built with
+               <i class="fas fa-heart"></i> futuristic tech & passion.
             </p>
+         </div>
+      </footer>
 
-            <ul class="hero-highlights">
-                <li><span>✨</span> AI-powered Platforms</li>
-                <li><span>⚙️</span> Scalable Infrastructure</li>
-                <li><span>🌟</span> Design-Driven Interfaces</li>
-                <li><span>🚀</span> Future-Ready Solutions</li>
-            </ul>
-        </section>
-
-        <section id="career" data-animate>
-            <h2 class="section-title">🚀 Career at <span class="highlight">Lufonic</span></h2>
-            <div class="career-container">
-                <div class="job-listings">
-                    <div class="job-card animate-card" data-job="job1">
-                        <h3>Software Engineer / Specialist<br><small>(DataStax & Cassandra)</small></h3>
-                        <p><i>📍 India - Gurgaon (Lufonic Site)</i></p>
-                        <span class="badge">Hybrid</span>
-                        <div class="actions">
-                            <button class="btn-apply" onclick="openApplyPopup()"><i class="fa-solid fa-paper-plane"></i>
-                                Apply</button>
-                            <button class="btn-map" onclick="showOnMap('Gurgaon, India')"><i
-                                    class="fa-solid fa-map-location-dot"></i> See on Map</button>
-                        </div>
-                    </div>
-                    <div class="job-card animate-card" data-job="job2">
-                        <h3>Software Engineer</h3>
-                        <p><i>📍 Pune, India</i></p>
-                        <span class="badge">Hybrid</span>
-                        <div class="actions">
-                            <button class="btn-apply" onclick="openApplyPopup()"><i class="fa-solid fa-paper-plane"></i>
-                                Apply</button>
-                            <button class="btn-map" onclick="showOnMap('Pune, India')"><i
-                                    class="fa-solid fa-map-location-dot"></i> See on Map</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="job-description animate-fade">
-                    <div id="job1" class="jd">
-                        <h3>Software Engineer / Specialist (DataStax & Cassandra)</h3>
-                        <ul class="meta">
-                            <li><strong>ID:</strong> 200628</li>
-                            <li><strong>Required Travel:</strong> Minimal</li>
-                            <li><strong>Managerial:</strong> No</li>
-                            <li><strong>Location:</strong> India- Gurgaon (Lufonic Site)</li>
-                        </ul>
-                        <h4>Who are we?</h4>
-                        <p>Lufonic helps those who build the future to make it amazing...</p>
-                        <h4>Key Responsibilities:</h4>
-                        <ul class="fancy-list">
-                            <li>Install, configure, and maintain DataStax Enterprise...</li>
-                        </ul>
-                    </div>
-                    <div id="job2" class="jd">
-                        <h3>Software Engineer</h3>
-                        <ul class="meta">
-                            <li><strong>ID:</strong> 200629</li>
-                            <li><strong>Location:</strong> Pune, India</li>
-                        </ul>
-                        <p><strong>Description:</strong> Design and develop cutting-edge web applications...</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="popup" id="applyPopup">
-                <div class="popup-content animate-popup">
-                    <span class="close-btn" onclick="closeApplyPopup()">&times;</span>
-                    <h3>Apply for this Job</h3>
-                    <form>
-                        <input type="text" placeholder="Full Name" required />
-                        <input type="email" placeholder="Email Address" required />
-                        <input type="tel" placeholder="Phone Number" required />
-                        <textarea placeholder="Cover Letter (Optional)"></textarea>
-                        <input type="file" accept=".pdf,.doc,.docx" required />
-                        <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Submit
-                            Application</button>
-                    </form>
-                </div>
-            </div>
-
-            <div id="mapPopup" class="popup">
-                <div class="popup-content">
-                    <span class="close-btn" onclick="closeMapPopup()">&times;</span>
-                    <h3>Job Location</h3>
-                    <div id="map" style="width: 100%; height: 300px;"></div>
-                    <p id="distanceInfo"></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="products" data-animate>
-            <h2 class="section-title animate-fade">🚀 Our Products</h2>
-            <div class="modern-carousel-container animate-slide">
-                <div class="modern-carousel">
-                    <div class="carousel-track">
-                        <div class="carousel-slide"><img
-                                src="https://cdn.pixabay.com/photo/2024/03/17/18/04/ai-generated-8639493_1280.jpg"
-                                alt="Tindify Screenshot 1"></div>
-                        <div class="carousel-slide"><img
-                                src="https://cdn.pixabay.com/photo/2024/04/26/18/06/ai-generated-8722381_1280.jpg"
-                                alt="Tindify Screenshot 2"></div>
-                        <div class="carousel-slide"><img
-                                src="	https://cdn.pixabay.com/photo/2020/02/28/22/39/love-4888774_1280.jpg"
-                                alt="Tindify Screenshot 3"></div>
-                        <div class="carousel-slide"><img
-                                src="https://cdn.pixabay.com/photo/2017/08/01/08/11/sunset-2563408_1280.jpg"
-                                alt="Tindify Screenshot 4"></div>
-                        <div class="carousel-slide"><img
-                                src="https://cdn.pixabay.com/photo/2017/08/01/00/57/people-2562438_1280.jpg"
-                                alt="Tindify Screenshot 4"></div>
-                    </div>
-                </div>
-                <div class="carousel-controls">
-                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
-                    <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
-                </div>
-            </div>
-            <p class="product-description">
-                💘 <strong>Tindify</strong> – A futuristic dating app powered by AI, redefining how connections are made.
-                Modern UI meets meaningful swipes.
-            </p>
-        </section>
-
-        <section class="about-section" id="about">
-            <h2>Who We Are</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="./lufonic-removebg-preview.png" alt="About Lufonic">
-                </div>
-                <div class="about-text">
-                    <p><strong>Lufonic</strong> is not just a tech company, we're a vision factory. We design AI-driven
-                        platforms, beautiful mobile apps, and scalable digital products with futuristic flair. Our mission
-                        is to transform dreams into intelligent, user-friendly realities.</p>
-                    <p>With a team of passionate developers, designers, and visionaries, we deliver performance,
-                        scalability, and unforgettable digital experiences.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="specialized-tech-section" id="specialized-tech">
-            <h2 class="section-heading">🧠 Specialized Technologies</h2>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <i class="fab fa-react"></i>
-                    <h4>React & Next.js</h4>
-                    <p>High-performance UI libraries powering dynamic user experiences.</p>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-node"></i>
-                    <h4>Node.js & Express</h4>
-                    <p>Scalable backend APIs built with efficiency and modularity.</p>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-java"></i>
-                    <h4>Spring Boot</h4>
-                    <p>Robust enterprise-grade backend framework for microservices.</p>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-database"></i>
-                    <h4>MongoDB & PostgreSQL</h4>
-                    <p>NoSQL and relational databases optimized for diverse use cases.</p>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-aws"></i>
-                    <h4>AWS & GCP</h4>
-                    <p>Cloud platforms leveraged for scalable, secure infrastructure.</p>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-brain"></i>
-                    <h4>AI & ML Models</h4>
-                    <p>Custom-trained models to drive personalization and automation.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features-section" id="features">
-            <h2 class="features-title animate-fade">🌟 Why Choose Lufonic?</h2>
-            <div class="features-grid">
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-robot"></i>
-                    <h4>AI-First Solutions</h4>
-                    <p>We integrate artificial intelligence at every step to future-proof your business.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-laptop-code"></i>
-                    <h4>Modern Tech Stack</h4>
-                    <p>From React to Spring Boot, we use only the most performant technologies.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-layer-group"></i>
-                    <h4>Scalable Architecture</h4>
-                    <p>Built for growth, our platforms scale seamlessly with your user base.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-palette"></i>
-                    <h4>Futuristic Design</h4>
-                    <p>Visual storytelling through 3D avatars, dynamic layouts, and stunning UI.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-cloud"></i>
-                    <h4>Cloud-Native Approach</h4>
-                    <p>Harnessing the power of AWS, GCP, and Azure for robust deployments.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-bolt"></i>
-                    <h4>Lightning Performance</h4>
-                    <p>Our code is optimized for speed, delivering blazing-fast user experiences.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4>Enterprise-Grade Security</h4>
-                    <p>Security-first architecture protects your data and ensures compliance.</p>
-                </div>
-                <div class="feature-box animate-fade">
-                    <i class="fas fa-users"></i>
-                    <h4>User-Centric UX</h4>
-                    <p>Every pixel is designed with empathy, ensuring delightful user journeys.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about-section-theme">
-            <div class="glow-circle top-left"></div>
-            <div class="glow-circle bottom-right"></div>
-            <h2 class="section-heading">About Us</h2>
-            <p class="section-subtext">
-                At <strong style="color:#ff4db8;">Lufonic</strong>, we redefine innovation. We are a futuristic tech company
-                delivering <span style="color:#61dafb; font-weight: 600;">AI-driven</span>, <span
-                    style="color:#9b5de5; font-weight: 600;">scalable platforms</span> and intelligent software solutions.
-                With creative minds and cutting-edge tech, we architect experiences that shape the future.
-            </p>
-        </section>
-
-        <footer class="site-footer">
-            <div class="footer-glow"></div>
-            <div class="footer-container">
-                <div class="footer-section footer-about">
-                    <h3>Lufonic</h3>
-                    <p>Building futuristic, AI-powered software and digital experiences that scale.</p>
-                </div>
-                <div class="footer-section footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#career">Careers</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-envelope"></i> social@lufonic.com </p>
-                    <p><i class="fas fa-phone-alt"></i> +91 6388282031</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Gurugram, India</p>
-                </div>
-                <div class="footer-section footer-social">
-                    <h4>Connect with Us</h4>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/lufonic-technologies-75a873372/" aria-label="LinkedIn"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/lufonic/" aria-label="Instagram"><i
-                                class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 <strong>Lufonic</strong>. Built with <i class="fas fa-heart"></i> futuristic tech & passion.
-                </p>
-            </div>
-        </footer>
-
-
-
-
-        <script>
-            const phrases = ["smart software.", "AI solutions.", "scalable platforms.", "beautiful apps."];
-            const el = document.getElementById("type-text");
-            let i = 0, j = 0, currentPhrase = [], isDeleting = false;
-
-            function loop() {
-                el.innerHTML = currentPhrase.join('');
-                if (!isDeleting && j <= phrases[i].length) {
-                    currentPhrase.push(phrases[i][j]);
-                    j++;
-                }
-                if (isDeleting && j <= phrases[i].length) {
-                    currentPhrase.pop();
-                    j--;
-                }
-                if (j === phrases[i].length) {
-                    isDeleting = true;
-                    setTimeout(loop, 1000);
-                    return;
-                }
-                if (j === 0 && isDeleting) {
-                    isDeleting = false;
-                    i = (i + 1) % phrases.length;
-                }
-                setTimeout(loop, isDeleting ? 50 : 150);
-            }
-            loop();
-
-            function toggleMenu() {
-                const menu = document.getElementById('mobileMenu');
-                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-            }
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-
-            function showTab(id) {
-                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-                document.getElementById(id).classList.add('active');
-            }
-
-
-            let currentSlide = 1;
-            const track = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const totalSlides = slides.length;
-
-            function updateCarousel() {
-                slides.forEach(slide => slide.classList.remove('center'));
-                slides[currentSlide].classList.add('center');
-                const offset = (currentSlide - 1) * -33.33;
-                track.style.transform = `translateX(${offset}%)`;
-            }
-
-            function moveCarousel(direction) {
-                currentSlide += direction;
-                if (currentSlide < 0) currentSlide = totalSlides - 1;
-                if (currentSlide >= totalSlides) currentSlide = 0;
-                updateCarousel();
-            }
-
-            // Auto scroll
-            let carouselInterval = setInterval(() => {
-                moveCarousel(1);
-            }, 3000);
-
-            // Pause on hover
-            const carouselContainer = document.querySelector('.modern-carousel-container');
-            carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-            carouselContainer.addEventListener('mouseleave', () => carouselInterval = setInterval(() => moveCarousel(1), 3000));
-
-            updateCarousel();
-
-            document.querySelectorAll('.job-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const jobId = card.getAttribute('data-job');
-
-                    document.querySelectorAll('.job-card').forEach(c => c.classList.remove('active'));
-                    card.classList.add('active');
-
-                    document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
-                    document.getElementById(jobId).classList.add('active');
-                });
-            });
-
-            function openApplyPopup() {
-                document.getElementById('applyPopup').style.display = 'flex';
-            }
-
-            function closeApplyPopup() {
-                document.getElementById('applyPopup').style.display = 'none';
-            }
-
-            function closeMapPopup() {
-                document.getElementById('mapPopup').style.display = 'none';
-            }
-
-            function showOnMap(locationName) {
-                if (!navigator.geolocation) {
-                    alert('Geolocation not supported by your browser');
-                    return;
-                }
-
-                navigator.geolocation.getCurrentPosition(position => {
-                    const userLat = position.coords.latitude;
-                    const userLng = position.coords.longitude;
-
-                    const geocoderUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}`;
-
-                    fetch(geocoderUrl)
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.length === 0) {
-                                alert('Location not found');
-                                return;
-                            }
-
-                            const jobLat = parseFloat(data[0].lat);
-                            const jobLng = parseFloat(data[0].lon);
-
-                            const distance = getDistanceFromLatLonInKm(userLat, userLng, jobLat, jobLng);
-
-                            const map = L.map('map').setView([jobLat, jobLng], 10);
-                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                attribution: '&copy; OpenStreetMap contributors'
-                            }).addTo(map);
-
-                            L.marker([userLat, userLng]).addTo(map).bindPopup("You").openPopup();
-                            L.marker([jobLat, jobLng]).addTo(map).bindPopup(locationName);
-
-                            document.getElementById('distanceInfo').innerText = `Distance from your location: ${distance.toFixed(2)} km`;
-                            document.getElementById('mapPopup').style.display = 'flex';
-                        });
-                });
-            }
-
-            function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-                const R = 6371; // Radius of the earth in km
-                const dLat = deg2rad(lat2 - lat1);
-                const dLon = deg2rad(lon2 - lon1);
-                const a =
-                    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
-                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-                return R * c;
-            }
-
-            function deg2rad(deg) {
-                return deg * (Math.PI / 180);
-            }
-
-            let currentIndex = 0;
-
-            function moveCarousel(direction) {
-                const track = document.querySelector('.carousel-track');
-                const slides = document.querySelectorAll('.carousel-slide');
-                const totalSlides = slides.length;
-
-                currentIndex += direction;
-                if (currentIndex < 0) currentIndex = totalSlides - 1;
-                if (currentIndex >= totalSlides) currentIndex = 0;
-
-                const offset = currentIndex * -100;
-                track.style.transform = `translateX(${offset}%)`;
-            }
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const firstCard = document.querySelector('.job-card');
-                const firstJobId = firstCard.getAttribute('data-job');
-
-                firstCard.classList.add('active');
-
-                document.querySelectorAll('.jd').forEach(j => j.classList.remove('active'));
-                document.getElementById(firstJobId).classList.add('active');
-            });
-
-
-
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const hamburger = document.getElementById("hamburgerBtn");
-                const mobileMenu = document.getElementById("mobileMenu");
-
-                hamburger.addEventListener("click", function () {
-                    mobileMenu.classList.toggle("show");
-                });
-
-                document.addEventListener("click", function (e) {
-                    if (
-                        mobileMenu.classList.contains("show") &&
-                        !mobileMenu.contains(e.target) &&
-                        !hamburger.contains(e.target)
-                    ) {
-                        mobileMenu.classList.remove("show");
-                    }
-                });
-
-                document.querySelectorAll(".menu-item").forEach((item) => {
-                    item.addEventListener("click", () => {
-                        mobileMenu.classList.remove("show");
-                    });
-                });
-            });
-        </script>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    </body>
+      <script src="./index.js"></script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+   </body>
 </html>
