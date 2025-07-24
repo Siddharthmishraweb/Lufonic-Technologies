@@ -2110,3 +2110,13 @@ footer {
   z-index: 1;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .remove-mb {
+    display: none !important;
+  }
+
+  .regular {
+    height: 19rem !important;
+  }
+}
