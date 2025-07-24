@@ -2119,4 +2119,8 @@ footer {
   .regular {
     height: 19rem !important;
   }
+
+  #products{
+    overflow: hidden;
+  }
 }
